@@ -50,6 +50,16 @@ import portfolioBletoSinuca from '@/assets/portfolio-bleto-sinuca.jpg';
 import portfolioGSTVFutsal from '@/assets/portfolio-gstv-futsal.jpg';
 import portfolioChalanaMangaLonga from '@/assets/portfolio-chalana-manga-longa.jpg';
 import portfolioGruntecAgro from '@/assets/portfolio-gruntec-agro.jpg';
+import portfolioMoletomHyunjin from '@/assets/portfolio-moletom-hyunjin.jpg';
+import portfolioEsteticaAnimal from '@/assets/portfolio-estetica-animal.jpg';
+import portfolioJaquetaCali from '@/assets/portfolio-jaqueta-cali.jpg';
+import portfolioJaquetaWavo from '@/assets/portfolio-jaqueta-wavo.jpg';
+import portfolioJaquetaUseplast from '@/assets/portfolio-jaqueta-useplast.jpg';
+import portfolioVillaDiGrano from '@/assets/portfolio-villa-di-grano.jpg';
+import portfolioShopeeXpress from '@/assets/portfolio-shopee-xpress.jpg';
+import portfolioCafeMais from '@/assets/portfolio-cafe-mais.jpg';
+import portfolioMoletomSeguranca from '@/assets/portfolio-moletom-seguranca.jpg';
+import portfolioMoletomGaleraMDF from '@/assets/portfolio-moletom-galera-mdf.jpg';
 
 // Portfolio items with real work examples
 const portfolioItems = [{
@@ -340,6 +350,66 @@ const portfolioItems = [{
   category: 'corporativo',
   image: portfolioGruntecAgro,
   description: 'Uniformes manga longa para empresa do agronegócio com design verde vibrante.'
+}, {
+  id: 49,
+  title: 'Moletom Personalizado Hyunjin',
+  category: 'personalizado',
+  image: portfolioMoletomHyunjin,
+  description: 'Moletom com estampa personalizada de fã com assinatura autografada.'
+}, {
+  id: 50,
+  title: 'Uniformes Latidos & Miados Pet',
+  category: 'corporativo',
+  image: portfolioEsteticaAnimal,
+  description: 'Uniformes para estética animal com design fofo e gradiente colorido.'
+}, {
+  id: 51,
+  title: 'Jaqueta Corta-Vento Cali',
+  category: 'personalizado',
+  image: portfolioJaquetaCali,
+  description: 'Jaqueta corta-vento personalizada em azul vibrante com capuz.'
+}, {
+  id: 52,
+  title: 'Jaqueta Corta-Vento Wavo',
+  category: 'corporativo',
+  image: portfolioJaquetaWavo,
+  description: 'Jaquetas corta-vento corporativas com detalhes em verde neon.'
+}, {
+  id: 53,
+  title: 'Jaqueta Corta-Vento Useplast',
+  category: 'corporativo',
+  image: portfolioJaquetaUseplast,
+  description: 'Jaquetas esportivas com sublimação total em preto e verde.'
+}, {
+  id: 54,
+  title: 'Camisetas Villa Di Grano',
+  category: 'corporativo',
+  image: portfolioVillaDiGrano,
+  description: 'Uniformes clean para loja de produtos naturais com logo bordado.'
+}, {
+  id: 55,
+  title: 'Uniformes Shopee Xpress',
+  category: 'corporativo',
+  image: portfolioShopeeXpress,
+  description: 'Uniformes para entregadores da Shopee com personalização individual.'
+}, {
+  id: 56,
+  title: 'Uniformes Café Mais Cafeteria',
+  category: 'corporativo',
+  image: portfolioCafeMais,
+  description: 'Camisetas para cafeteria com logo vintage e elegante.'
+}, {
+  id: 57,
+  title: 'Moletom Segurança Privada',
+  category: 'corporativo',
+  image: portfolioMoletomSeguranca,
+  description: 'Moletons profissionais para equipe de segurança com patches bordados.'
+}, {
+  id: 58,
+  title: 'Moletom Galera MDF Rota 163',
+  category: 'personalizado',
+  image: portfolioMoletomGaleraMDF,
+  description: 'Moletom personalizado para grupo com estampa criativa de alienígena.'
 }];
 const categories = [{
   id: 'todos',
