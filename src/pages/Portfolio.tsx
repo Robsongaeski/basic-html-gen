@@ -73,54 +73,6 @@ import portfolioTimePlanalto from '@/assets/portfolio-time-planalto.jpg';
 
 // Portfolio items with real work examples
 const portfolioItems = [{
-  id: 1,
-  title: 'Uniformes Time Águia FC',
-  category: 'esportivo',
-  image: portfolioTimeAguia,
-  description: 'Uniformes completos para time de futebol com design moderno e tecidos de alta performance.'
-}, {
-  id: 2,
-  title: 'Camisetas Festival Música',
-  category: 'eventos',
-  image: portfolioFestival,
-  description: 'Camisetas personalizadas para festival de música com 5 mil unidades produzidas.'
-}, {
-  id: 3,
-  title: 'Uniformes Empresa Tech',
-  category: 'corporativo',
-  image: portfolioTech,
-  description: 'Uniformes corporativos elegantes para empresa de tecnologia com 200 colaboradores.'
-}, {
-  id: 4,
-  title: 'Camisetas Personalizadas Loja',
-  category: 'personalizado',
-  image: portfolioLoja,
-  description: 'Linha de camisetas personalizadas para revenda em loja de roupas.'
-}, {
-  id: 5,
-  title: 'Uniformes Basquete Feminino',
-  category: 'esportivo',
-  image: portfolioBasquete,
-  description: 'Uniformes para equipe feminina de basquete com design exclusivo.'
-}, {
-  id: 6,
-  title: 'Camisetas Conferência Tech',
-  category: 'eventos',
-  image: portfolioFestival,
-  description: 'Camisetas para conferência de tecnologia com estampa especial.'
-}, {
-  id: 7,
-  title: 'Uniformes Rede Farmácias',
-  category: 'corporativo',
-  image: portfolioFarmacia,
-  description: 'Uniformes padronizados para rede de farmácias com 50 lojas.'
-}, {
-  id: 8,
-  title: 'Camisetas Banda Rock',
-  category: 'personalizado',
-  image: portfolioLoja,
-  description: 'Camisetas de banda com estampa criativa para venda em shows.'
-}, {
   id: 9,
   title: 'Camisetas Grupo Religioso',
   category: 'eventos',
