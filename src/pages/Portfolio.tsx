@@ -20,6 +20,16 @@ import portfolioFlyDonuts from '@/assets/portfolio-fly-donuts.jpg';
 import portfolioPilates from '@/assets/portfolio-pilates-personalizado.jpg';
 import portfolioUsiplast from '@/assets/portfolio-usiplast-23anos.jpg';
 import portfolioPantanal from '@/assets/portfolio-pantanal-summit.jpg';
+import portfolioGranjaChalana from '@/assets/portfolio-granja-chalana.jpg';
+import portfolioSeveroTransportes from '@/assets/portfolio-severo-transportes.jpg';
+import portfolioStaffDJ from '@/assets/portfolio-staff-dj-casagrande.jpg';
+import portfolioCatequista from '@/assets/portfolio-catequista.jpg';
+import portfolioOutubroRosa from '@/assets/portfolio-outubro-rosa.jpg';
+import portfolioFDTransportes from '@/assets/portfolio-fd-transportes.jpg';
+import portfolioPoloCarBox from '@/assets/portfolio-polo-carbox.jpg';
+import portfolioAthena from '@/assets/portfolio-athena.jpg';
+import portfolioVoluntarios from '@/assets/portfolio-voluntarios.jpg';
+import portfolioTransMedeiros from '@/assets/portfolio-trans-medeiros.jpg';
 
 // Portfolio items with real work examples
 const portfolioItems = [{
@@ -130,6 +140,66 @@ const portfolioItems = [{
   category: 'eventos',
   image: portfolioPantanal,
   description: 'Camisetas para evento corporativo com design exclusivo e tecnologia dry-fit.'
+}, {
+  id: 19,
+  title: 'Camisetas Granja Chalana',
+  category: 'corporativo',
+  image: portfolioGranjaChalana,
+  description: 'Uniformes para empresa do agronegócio com estampa sublimática em alta definição.'
+}, {
+  id: 20,
+  title: 'Camisetas Severo Transportes',
+  category: 'corporativo',
+  image: portfolioSeveroTransportes,
+  description: 'Uniformes para empresa de transportes com design criativo e sublimação total.'
+}, {
+  id: 21,
+  title: 'Camisetas Staff DJ Casagrande',
+  category: 'eventos',
+  image: portfolioStaffDJ,
+  description: 'Uniformes de equipe para eventos com design clean e profissional.'
+}, {
+  id: 22,
+  title: 'Camisetas Catequista',
+  category: 'eventos',
+  image: portfolioCatequista,
+  description: 'Camisetas para grupo religioso com estampas vibrantes e coloridas.'
+}, {
+  id: 23,
+  title: 'Camisetas Outubro Rosa',
+  category: 'eventos',
+  image: portfolioOutubroRosa,
+  description: 'Camisetas para campanha social com estampa delicada e significativa.'
+}, {
+  id: 24,
+  title: 'Camisetas FD Transportes',
+  category: 'corporativo',
+  image: portfolioFDTransportes,
+  description: 'Uniformes corporativos para empresa de transportes e turismo.'
+}, {
+  id: 25,
+  title: 'Polo Car Box',
+  category: 'corporativo',
+  image: portfolioPoloCarBox,
+  description: 'Uniformes polo elegantes para empresa automotiva com bordado premium.'
+}, {
+  id: 26,
+  title: 'Camisetas Athena',
+  category: 'personalizado',
+  image: portfolioAthena,
+  description: 'Camisetas personalizadas com design artístico e detalhes em dourado.'
+}, {
+  id: 27,
+  title: 'Camisetas Voluntários',
+  category: 'eventos',
+  image: portfolioVoluntarios,
+  description: 'Uniformes para grupo de voluntários com design inspirador e motivacional.'
+}, {
+  id: 28,
+  title: 'Camisetas Trans Medeiros',
+  category: 'corporativo',
+  image: portfolioTransMedeiros,
+  description: 'Uniformes para empresa de transportes com design arrojado e moderno.'
 }];
 const categories = [{
   id: 'todos',
