@@ -178,11 +178,11 @@ export default function Moletons() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {portfolioExamples.map((example) => (
               <div key={example.id} className="card-service group overflow-hidden">
-                <div className="aspect-square overflow-hidden rounded-lg mb-4">
+                <div className="overflow-hidden rounded-lg mb-4">
                   <img 
                     src={example.image} 
                     alt={example.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
                 <h3 className="font-semibold text-lg text-foreground mb-2">
