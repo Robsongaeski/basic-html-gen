@@ -60,6 +60,16 @@ import portfolioShopeeXpress from '@/assets/portfolio-shopee-xpress.jpg';
 import portfolioCafeMais from '@/assets/portfolio-cafe-mais.jpg';
 import portfolioMoletomSeguranca from '@/assets/portfolio-moletom-seguranca.jpg';
 import portfolioMoletomGaleraMDF from '@/assets/portfolio-moletom-galera-mdf.jpg';
+import portfolioTimeMarlon from '@/assets/portfolio-time-marlon.jpg';
+import portfolioArbitragemPrevence from '@/assets/portfolio-arbitragem-prevence.jpg';
+import portfolioTimePastorello from '@/assets/portfolio-time-pastorello.jpg';
+import portfolioTimeNonoAno from '@/assets/portfolio-time-nono-ano.jpg';
+import portfolioTerceiraoAzul from '@/assets/portfolio-terceirao-azul.jpg';
+import portfolioTerceiraoUrsinho from '@/assets/portfolio-terceirao-ursinho.jpg';
+import portfolioTerceiraoLaranja from '@/assets/portfolio-terceirao-laranja.jpg';
+import portfolioTerceiraoRosa from '@/assets/portfolio-terceirao-rosa.jpg';
+import portfolioTimeFrizon from '@/assets/portfolio-time-frizon.jpg';
+import portfolioTimePlanalto from '@/assets/portfolio-time-planalto.jpg';
 
 // Portfolio items with real work examples
 const portfolioItems = [{
@@ -410,6 +420,66 @@ const portfolioItems = [{
   category: 'personalizado',
   image: portfolioMoletomGaleraMDF,
   description: 'Moletom personalizado para grupo com estampa criativa de alienígena.'
+}, {
+  id: 59,
+  title: 'Uniformes Time Marlon',
+  category: 'esportivo',
+  image: portfolioTimeMarlon,
+  description: 'Uniformes de futebol com design moderno em preto e amarelo com múltiplos patrocínios.'
+}, {
+  id: 60,
+  title: 'Uniformes Arbitragem Prevence',
+  category: 'esportivo',
+  image: portfolioArbitragemPrevence,
+  description: 'Uniformes para árbitros em vermelho vibrante com patrocínio destaque.'
+}, {
+  id: 61,
+  title: 'Uniformes Time Pastorello',
+  category: 'esportivo',
+  image: portfolioTimePastorello,
+  description: 'Uniformes de basquete com estampa de dragão e múltiplos patrocinadores.'
+}, {
+  id: 62,
+  title: 'Uniformes Time 9º Ano',
+  category: 'esportivo',
+  image: portfolioTimeNonoAno,
+  description: 'Uniformes escolares esportivos com design onça e gradiente vermelho.'
+}, {
+  id: 63,
+  title: 'Camisetas Terceirão 2025 Azul',
+  category: 'eventos',
+  image: portfolioTerceiraoAzul,
+  description: 'Camisetas de formatura do terceiro ano com design moderno e personalizado.'
+}, {
+  id: 64,
+  title: 'Camisetas Terceirão 2025 Ursinho',
+  category: 'eventos',
+  image: portfolioTerceiraoUrsinho,
+  description: 'Camisetas de formatura com ilustração criativa de ursinho em pink.'
+}, {
+  id: 65,
+  title: 'Camisetas Terceirão 2020 Laranja',
+  category: 'eventos',
+  image: portfolioTerceiraoLaranja,
+  description: 'Camisetas de formatura com design em laranja e xadrez retrô.'
+}, {
+  id: 66,
+  title: 'Uniformes Terceirão Rosa Gradiente',
+  category: 'eventos',
+  image: portfolioTerceiraoRosa,
+  description: 'Uniformes esportivos de formatura com gradiente preto para rosa.'
+}, {
+  id: 67,
+  title: 'Uniformes Time Frizon',
+  category: 'esportivo',
+  image: portfolioTimeFrizon,
+  description: 'Uniformes completos de futebol em azul royal com múltiplos patrocínios.'
+}, {
+  id: 68,
+  title: 'Uniformes Time Planalto',
+  category: 'esportivo',
+  image: portfolioTimePlanalto,
+  description: 'Uniformes de futebol em azul claro com listras e kit completo.'
 }];
 const categories = [{
   id: 'todos',
