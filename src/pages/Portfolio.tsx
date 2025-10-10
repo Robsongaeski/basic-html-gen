@@ -40,6 +40,16 @@ import portfolioCyborgs from '@/assets/portfolio-cyborgs-robotica.jpg';
 import portfolioProfessorDanca from '@/assets/portfolio-professor-danca.jpg';
 import portfolioAlcides from '@/assets/portfolio-alcides-religioso.jpg';
 import portfolioArsenalMurilo from '@/assets/portfolio-arsenal-murilo.jpg';
+import portfolioPBTerraplanagem from '@/assets/portfolio-pb-terraplanagem.jpg';
+import portfolioFutsalPlanalto from '@/assets/portfolio-futsal-planalto.jpg';
+import portfolioReallClean from '@/assets/portfolio-reall-clean.jpg';
+import portfolioCorridaRun from '@/assets/portfolio-corrida-run.jpg';
+import portfolioSKWEscolar from '@/assets/portfolio-skw-escolar.jpg';
+import portfolioLaabasFutsal from '@/assets/portfolio-laabas-futsal.jpg';
+import portfolioBletoSinuca from '@/assets/portfolio-bleto-sinuca.jpg';
+import portfolioGSTVFutsal from '@/assets/portfolio-gstv-futsal.jpg';
+import portfolioChalanaMangaLonga from '@/assets/portfolio-chalana-manga-longa.jpg';
+import portfolioGruntecAgro from '@/assets/portfolio-gruntec-agro.jpg';
 
 // Portfolio items with real work examples
 const portfolioItems = [{
@@ -270,6 +280,66 @@ const portfolioItems = [{
   category: 'esportivo',
   image: portfolioArsenalMurilo,
   description: 'Uniformes de futebol com listras clássicas e acabamento premium.'
+}, {
+  id: 39,
+  title: 'Camisa PB Terraplanagem',
+  category: 'corporativo',
+  image: portfolioPBTerraplanagem,
+  description: 'Uniformes manga longa para empresa de terraplanagem com design impactante.'
+}, {
+  id: 40,
+  title: 'Uniformes Futsal Planalto',
+  category: 'esportivo',
+  image: portfolioFutsalPlanalto,
+  description: 'Uniformes manga longa de futsal com múltiplos patrocínios.'
+}, {
+  id: 41,
+  title: 'Uniformes Reall Clean',
+  category: 'corporativo',
+  image: portfolioReallClean,
+  description: 'Camisas manga longa para empresa de limpeza com design clean e moderno.'
+}, {
+  id: 42,
+  title: 'Camisetas Corrida Run',
+  category: 'eventos',
+  image: portfolioCorridaRun,
+  description: 'Camisetas para corrida de rua com design criativo e divertido.'
+}, {
+  id: 43,
+  title: 'Camisetas SKW Escolar',
+  category: 'esportivo',
+  image: portfolioSKWEscolar,
+  description: 'Uniformes escolares esportivos com camuflado personalizado.'
+}, {
+  id: 44,
+  title: 'Uniformes Laabas FC Feminino',
+  category: 'esportivo',
+  image: portfolioLaabasFutsal,
+  description: 'Uniformes femininos de futsal com design em preto e rosa.'
+}, {
+  id: 45,
+  title: 'Camisetas Bleto-S Bar',
+  category: 'personalizado',
+  image: portfolioBletoSinuca,
+  description: 'Uniformes personalizados para equipe de sinuca com design temático.'
+}, {
+  id: 46,
+  title: 'Uniformes GSTV Futsal',
+  category: 'esportivo',
+  image: portfolioGSTVFutsal,
+  description: 'Uniformes de futsal com patrocínio da Gatha Confecções.'
+}, {
+  id: 47,
+  title: 'Camisa Manga Longa Granja Chalana',
+  category: 'corporativo',
+  image: portfolioChalanaMangaLonga,
+  description: 'Uniforme manga longa para granja com estampa realista de alta qualidade.'
+}, {
+  id: 48,
+  title: 'Camisa Manga Longa Grüntec Agro',
+  category: 'corporativo',
+  image: portfolioGruntecAgro,
+  description: 'Uniformes manga longa para empresa do agronegócio com design verde vibrante.'
 }];
 const categories = [{
   id: 'todos',
