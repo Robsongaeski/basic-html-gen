@@ -10,6 +10,16 @@ import portfolioTech from '@/assets/portfolio-empresa-tech.jpg';
 import portfolioLoja from '@/assets/portfolio-camisetas-loja.jpg';
 import portfolioBasquete from '@/assets/portfolio-basquete-feminino.jpg';
 import portfolioFarmacia from '@/assets/portfolio-farmacia.jpg';
+import portfolioCamisetaReligiosa from '@/assets/portfolio-camiseta-religiosa.jpg';
+import portfolioPolimed from '@/assets/portfolio-polimed-30anos.jpg';
+import portfolioPoloAsiaClub from '@/assets/portfolio-polo-asia-club.jpg';
+import portfolioJaquetaMatech from '@/assets/portfolio-jaqueta-matech.jpg';
+import portfolioJaquetaProCampo from '@/assets/portfolio-jaqueta-procampo.jpg';
+import portfolioBrizola from '@/assets/portfolio-brizola-pinturas.jpg';
+import portfolioFlyDonuts from '@/assets/portfolio-fly-donuts.jpg';
+import portfolioPilates from '@/assets/portfolio-pilates-personalizado.jpg';
+import portfolioUsiplast from '@/assets/portfolio-usiplast-23anos.jpg';
+import portfolioPantanal from '@/assets/portfolio-pantanal-summit.jpg';
 
 // Portfolio items with real work examples
 const portfolioItems = [{
@@ -60,6 +70,66 @@ const portfolioItems = [{
   category: 'personalizado',
   image: portfolioLoja,
   description: 'Camisetas de banda com estampa criativa para venda em shows.'
+}, {
+  id: 9,
+  title: 'Camisetas Grupo Religioso',
+  category: 'eventos',
+  image: portfolioCamisetaReligiosa,
+  description: 'Camisetas personalizadas para grupo religioso com estampa sublimática de alta qualidade.'
+}, {
+  id: 10,
+  title: 'Camisetas Polimed 30 Anos',
+  category: 'corporativo',
+  image: portfolioPolimed,
+  description: 'Camisetas comemorativas para celebração de 30 anos da empresa Polimed.'
+}, {
+  id: 11,
+  title: 'Camisa Polo Asia Club',
+  category: 'corporativo',
+  image: portfolioPoloAsiaClub,
+  description: 'Uniformes polo elegantes para empresa com bordados personalizados.'
+}, {
+  id: 12,
+  title: 'Jaqueta Corta-Vento Matech',
+  category: 'corporativo',
+  image: portfolioJaquetaMatech,
+  description: 'Jaquetas corta-vento com sublimação total para empresa de tecnologia.'
+}, {
+  id: 13,
+  title: 'Jaqueta Pro Campo',
+  category: 'corporativo',
+  image: portfolioJaquetaProCampo,
+  description: 'Jaquetas corta-vento para empresa do agronegócio com design exclusivo.'
+}, {
+  id: 14,
+  title: 'Uniformes Brizola Pinturas',
+  category: 'corporativo',
+  image: portfolioBrizola,
+  description: 'Uniformes profissionais para empresa de pinturas com malha respirável.'
+}, {
+  id: 15,
+  title: 'Camisetas Fly Donuts & Pizza',
+  category: 'corporativo',
+  image: portfolioFlyDonuts,
+  description: 'Uniformes clean e modernos para restaurante com logo bordado.'
+}, {
+  id: 16,
+  title: 'Camisetas Pilates Personalizadas',
+  category: 'personalizado',
+  image: portfolioPilates,
+  description: 'Camisetas personalizadas para estúdio de pilates com sublimação total.'
+}, {
+  id: 17,
+  title: 'Camisetas Usiplast 23 Anos',
+  category: 'corporativo',
+  image: portfolioUsiplast,
+  description: 'Camisetas comemorativas para celebração de 23 anos da empresa.'
+}, {
+  id: 18,
+  title: 'Camisetas Pantanal Summit 2025',
+  category: 'eventos',
+  image: portfolioPantanal,
+  description: 'Camisetas para evento corporativo com design exclusivo e tecnologia dry-fit.'
 }];
 const categories = [{
   id: 'todos',
