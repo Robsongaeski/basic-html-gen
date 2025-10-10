@@ -161,7 +161,7 @@ const portfolioItems = [{
   title: 'Camisetas Fly Donuts & Pizza',
   category: 'corporativo',
   image: portfolioFlyDonuts,
-  description: 'Uniformes clean e modernos para restaurante com logo bordado.'
+  description: 'Uniformes clean e modernos para restaurante com logo.'
 }, {
   id: 16,
   title: 'Camisetas Pilates Personalizadas',
@@ -242,7 +242,7 @@ const portfolioItems = [{
   description: 'Uniformes para empresa de transportes com design arrojado e moderno.'
 }, {
   id: 29,
-  title: 'Camisetas Festival do Churrasco',
+  title: 'Camisetas Festival do Churrasco El Toro',
   category: 'eventos',
   image: portfolioFestivalChurrasco,
   description: 'Camisetas para festival gastronômico com design criativo e impactante.'
@@ -260,19 +260,19 @@ const portfolioItems = [{
   description: 'Uniformes profissionais para marcenaria com camuflado personalizado.'
 }, {
   id: 32,
-  title: 'Uniformes Time Ceoje',
+  title: 'Uniformes Time Interclasses',
   category: 'esportivo',
   image: portfolioTimeCeoje,
   description: 'Uniformes de futebol com design único e sublimação artística.'
 }, {
   id: 33,
-  title: 'Uniformes Mater Dei Pesca Esportiva',
+  title: 'Uniformes Interclasses Mater Dei',
   category: 'esportivo',
   image: portfolioMaterDei,
-  description: 'Camisetas para equipe de pesca esportiva com estampa temática.'
+  description: 'Camisetas para equipe, interclasse Mater Dei.'
 }, {
   id: 34,
-  title: 'Uniformes Time Naiara',
+  title: 'Uniformes Time',
   category: 'esportivo',
   image: portfolioNaiaraFutebol,
   description: 'Uniformes esportivos clean e profissionais para time de futebol.'
@@ -290,13 +290,13 @@ const portfolioItems = [{
   description: 'Uniformes personalizados para escola de dança com identidade visual única.'
 }, {
   id: 37,
-  title: 'Camisetas Alcides Romaria',
+  title: 'Camisetas Romaria',
   category: 'eventos',
   image: portfolioAlcides,
   description: 'Camisetas para romaria religiosa com estampa sublimática de alta qualidade.'
 }, {
   id: 38,
-  title: 'Uniformes Time Arsenal',
+  title: 'Uniformes Time',
   category: 'esportivo',
   image: portfolioArsenalMurilo,
   description: 'Uniformes de futebol com listras clássicas e acabamento premium.'
@@ -323,31 +323,31 @@ const portfolioItems = [{
   title: 'Camisetas Corrida Run',
   category: 'eventos',
   image: portfolioCorridaRun,
-  description: 'Camisetas para corrida de rua com design criativo e divertido.'
+  description: 'Camisetas para corrida de rua cores Neon.'
 }, {
   id: 43,
-  title: 'Camisetas SKW Escolar',
+  title: 'Camisetas Bocha',
   category: 'esportivo',
   image: portfolioSKWEscolar,
-  description: 'Uniformes escolares esportivos com camuflado personalizado.'
+  description: 'Uniforme Esportivo para time de Bocha.'
 }, {
   id: 44,
-  title: 'Uniformes Laabas FC Feminino',
+  title: 'Uniformes Esportivo Feminino',
   category: 'esportivo',
   image: portfolioLaabasFutsal,
   description: 'Uniformes femininos de futsal com design em preto e rosa.'
 }, {
   id: 45,
-  title: 'Camisetas Bleto-S Bar',
+  title: 'Camisetas Bar',
   category: 'personalizado',
   image: portfolioBletoSinuca,
   description: 'Uniformes personalizados para equipe de sinuca com design temático.'
 }, {
   id: 46,
-  title: 'Uniformes GSTV Futsal',
+  title: 'Uniformes Futsal',
   category: 'esportivo',
   image: portfolioGSTVFutsal,
-  description: 'Uniformes de futsal com patrocínio da Gatha Confecções.'
+  description: 'Uniformes de futsal com patrocínio.'
 }, {
   id: 47,
   title: 'Camisa Manga Longa Granja Chalana',
@@ -356,7 +356,7 @@ const portfolioItems = [{
   description: 'Uniforme manga longa para granja com estampa realista de alta qualidade.'
 }, {
   id: 48,
-  title: 'Camisa Manga Longa Grüntec Agro',
+  title: 'Camisa Manga Longa Gruntec Agro',
   category: 'corporativo',
   image: portfolioGruntecAgro,
   description: 'Uniformes manga longa para empresa do agronegócio com design verde vibrante.'
@@ -374,13 +374,13 @@ const portfolioItems = [{
   description: 'Uniformes para estética animal com design fofo e gradiente colorido.'
 }, {
   id: 51,
-  title: 'Jaqueta Corta-Vento Cali',
+  title: 'Jaqueta Corta-Vento Chillpass',
   category: 'personalizado',
   image: portfolioJaquetaCali,
   description: 'Jaqueta corta-vento personalizada em azul vibrante com capuz.'
 }, {
   id: 52,
-  title: 'Jaqueta Corta-Vento Wavo',
+  title: 'Jaqueta Corta-Vento Wave',
   category: 'corporativo',
   image: portfolioJaquetaWavo,
   description: 'Jaquetas corta-vento corporativas com detalhes em verde neon.'
@@ -395,7 +395,7 @@ const portfolioItems = [{
   title: 'Camisetas Villa Di Grano',
   category: 'corporativo',
   image: portfolioVillaDiGrano,
-  description: 'Uniformes clean para loja de produtos naturais com logo bordado.'
+  description: 'Uniformes clean para loja de produtos naturais com logos estampadas.'
 }, {
   id: 55,
   title: 'Uniformes Shopee Xpress',
@@ -413,31 +413,31 @@ const portfolioItems = [{
   title: 'Moletom Segurança Privada',
   category: 'corporativo',
   image: portfolioMoletomSeguranca,
-  description: 'Moletons profissionais para equipe de segurança com patches bordados.'
+  description: 'Moletons profissionais para equipe de segurança estampado.'
 }, {
   id: 58,
   title: 'Moletom Galera MDF Rota 163',
   category: 'personalizado',
   image: portfolioMoletomGaleraMDF,
-  description: 'Moletom personalizado para grupo com estampa criativa de alienígena.'
+  description: 'Moletom personalizado para grupo com estampa criativa.'
 }, {
   id: 59,
-  title: 'Uniformes Time Marlon',
+  title: 'Uniformes Esportivo',
   category: 'esportivo',
   image: portfolioTimeMarlon,
   description: 'Uniformes de futebol com design moderno em preto e amarelo com múltiplos patrocínios.'
 }, {
   id: 60,
-  title: 'Uniformes Arbitragem Prevence',
+  title: 'Uniformes Arbitragem',
   category: 'esportivo',
   image: portfolioArbitragemPrevence,
   description: 'Uniformes para árbitros em vermelho vibrante com patrocínio destaque.'
 }, {
   id: 61,
-  title: 'Uniformes Time Pastorello',
+  title: 'Uniformes Time',
   category: 'esportivo',
   image: portfolioTimePastorello,
-  description: 'Uniformes de basquete com estampa de dragão e múltiplos patrocinadores.'
+  description: 'Uniformes esportivo com estampa de dragão e múltiplos patrocinadores.'
 }, {
   id: 62,
   title: 'Uniformes Time 9º Ano',
@@ -449,7 +449,7 @@ const portfolioItems = [{
   title: 'Camisetas Terceirão 2025 Azul',
   category: 'eventos',
   image: portfolioTerceiraoAzul,
-  description: 'Camisetas de formatura do terceiro ano com design moderno e personalizado.'
+  description: 'Camisetas de formatura do terceiro ano com design moderno e personalizado com nome.'
 }, {
   id: 64,
   title: 'Camisetas Terceirão 2025 Ursinho',
@@ -458,19 +458,19 @@ const portfolioItems = [{
   description: 'Camisetas de formatura com ilustração criativa de ursinho em pink.'
 }, {
   id: 65,
-  title: 'Camisetas Terceirão 2020 Laranja',
+  title: 'Camisetas Terceirão 2025',
   category: 'eventos',
   image: portfolioTerceiraoLaranja,
-  description: 'Camisetas de formatura com design em laranja e xadrez retrô.'
+  description: 'Camisetas de formatura com design em  retrô.'
 }, {
   id: 66,
   title: 'Uniformes Terceirão Rosa Gradiente',
   category: 'eventos',
   image: portfolioTerceiraoRosa,
-  description: 'Uniformes esportivos de formatura com gradiente preto para rosa.'
+  description: 'Camiseta Terceirão personalizada.'
 }, {
   id: 67,
-  title: 'Uniformes Time Frizon',
+  title: 'Uniformes Esportivo',
   category: 'esportivo',
   image: portfolioTimeFrizon,
   description: 'Uniformes completos de futebol em azul royal com múltiplos patrocínios.'
