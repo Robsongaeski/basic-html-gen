@@ -30,6 +30,16 @@ import portfolioPoloCarBox from '@/assets/portfolio-polo-carbox.jpg';
 import portfolioAthena from '@/assets/portfolio-athena.jpg';
 import portfolioVoluntarios from '@/assets/portfolio-voluntarios.jpg';
 import portfolioTransMedeiros from '@/assets/portfolio-trans-medeiros.jpg';
+import portfolioFestivalChurrasco from '@/assets/portfolio-festival-churrasco.jpg';
+import portfolioPowerFitness from '@/assets/portfolio-power-fitness.jpg';
+import portfolioLeonarchik from '@/assets/portfolio-leonarchik.jpg';
+import portfolioTimeCeoje from '@/assets/portfolio-time-ceoje.jpg';
+import portfolioMaterDei from '@/assets/portfolio-mater-dei-pesca.jpg';
+import portfolioNaiaraFutebol from '@/assets/portfolio-naiara-futebol.jpg';
+import portfolioCyborgs from '@/assets/portfolio-cyborgs-robotica.jpg';
+import portfolioProfessorDanca from '@/assets/portfolio-professor-danca.jpg';
+import portfolioAlcides from '@/assets/portfolio-alcides-religioso.jpg';
+import portfolioArsenalMurilo from '@/assets/portfolio-arsenal-murilo.jpg';
 
 // Portfolio items with real work examples
 const portfolioItems = [{
@@ -200,6 +210,66 @@ const portfolioItems = [{
   category: 'corporativo',
   image: portfolioTransMedeiros,
   description: 'Uniformes para empresa de transportes com design arrojado e moderno.'
+}, {
+  id: 29,
+  title: 'Camisetas Festival do Churrasco',
+  category: 'eventos',
+  image: portfolioFestivalChurrasco,
+  description: 'Camisetas para festival gastronômico com design criativo e impactante.'
+}, {
+  id: 30,
+  title: 'Camisetas Power Fitness Academia',
+  category: 'esportivo',
+  image: portfolioPowerFitness,
+  description: 'Uniformes esportivos para academia com gradiente moderno e tecnologia dry-fit.'
+}, {
+  id: 31,
+  title: 'Uniformes Leonarchik Marcenaria',
+  category: 'corporativo',
+  image: portfolioLeonarchik,
+  description: 'Uniformes profissionais para marcenaria com camuflado personalizado.'
+}, {
+  id: 32,
+  title: 'Uniformes Time Ceoje',
+  category: 'esportivo',
+  image: portfolioTimeCeoje,
+  description: 'Uniformes de futebol com design único e sublimação artística.'
+}, {
+  id: 33,
+  title: 'Uniformes Mater Dei Pesca Esportiva',
+  category: 'esportivo',
+  image: portfolioMaterDei,
+  description: 'Camisetas para equipe de pesca esportiva com estampa temática.'
+}, {
+  id: 34,
+  title: 'Uniformes Time Naiara',
+  category: 'esportivo',
+  image: portfolioNaiaraFutebol,
+  description: 'Uniformes esportivos clean e profissionais para time de futebol.'
+}, {
+  id: 35,
+  title: 'Uniformes Cyborgs Robótica',
+  category: 'eventos',
+  image: portfolioCyborgs,
+  description: 'Camisetas para equipe de robótica com design tecnológico e moderno.'
+}, {
+  id: 36,
+  title: 'Camisetas Professor de Dança',
+  category: 'personalizado',
+  image: portfolioProfessorDanca,
+  description: 'Uniformes personalizados para escola de dança com identidade visual única.'
+}, {
+  id: 37,
+  title: 'Camisetas Alcides Romaria',
+  category: 'eventos',
+  image: portfolioAlcides,
+  description: 'Camisetas para romaria religiosa com estampa sublimática de alta qualidade.'
+}, {
+  id: 38,
+  title: 'Uniformes Time Arsenal',
+  category: 'esportivo',
+  image: portfolioArsenalMurilo,
+  description: 'Uniformes de futebol com listras clássicas e acabamento premium.'
 }];
 const categories = [{
   id: 'todos',
