@@ -1,33 +1,14 @@
+import { useMemo } from 'react';
 import { MessageSquare, Shirt, Palette, Timer, CheckCircle, Star, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProcessStep from '@/components/sections/ProcessStep';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
+import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
 import camisetasImage from '@/assets/camisetas-personalizadas.jpg';
 import briefingImage from '@/assets/process-briefing.jpg';
 import designImage from '@/assets/process-design.jpg';
 import productionImage from '@/assets/process-production.jpg';
 import deliveryImage from '@/assets/process-delivery.jpg';
-import portfolioLoja from '@/assets/portfolio-camisetas-loja.jpg';
-import portfolioFestival from '@/assets/portfolio-festival-musica.jpg';
-import portfolioBasquete from '@/assets/portfolio-basquete-feminino.jpg';
-
-const portfolioExamples = [
-  {
-    image: portfolioLoja,
-    title: 'Camisetas para Loja',
-    description: 'Linha completa de camisetas personalizadas para revenda'
-  },
-  {
-    image: portfolioFestival,
-    title: 'Festival de Música',
-    description: 'Camisetas personalizadas para evento musical'
-  },
-  {
-    image: portfolioBasquete,
-    title: 'Time de Basquete',
-    description: 'Uniformes personalizados para equipe esportiva'
-  }
-];
 
 const benefits = ['Estampas de alta durabilidade', 'Variedade de cores e modelos', 'Tecidos 100% algodão e misto', 'Personalização completa', 'Prazos rápidos de entrega', 'Qualidade garantida'];
 const specifications = {
@@ -78,6 +59,8 @@ const faq = [{
   answer: 'Não! Utilizamos tintas de alta qualidade e seguimos processos que garantem durabilidade das cores.'
 }];
 export default function CamisetasPersonalizadas() {
+  const portfolioExamples = useMemo(() => getRandomPortfolioByCategory('personalizado', 3), []);
+  
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
@@ -156,8 +139,8 @@ export default function CamisetasPersonalizadas() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {portfolioExamples.map((example, index) => (
-              <div key={index} className="card-service group overflow-hidden">
+            {portfolioExamples.map((example) => (
+              <div key={example.id} className="card-service group overflow-hidden">
                 <div className="aspect-square overflow-hidden rounded-lg mb-4">
                   <img 
                     src={example.image} 

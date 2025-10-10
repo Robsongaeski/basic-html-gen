@@ -1,33 +1,14 @@
+import { useMemo } from 'react';
 import { MessageSquare, Wind, Palette, Timer, CheckCircle, Star, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProcessStep from '@/components/sections/ProcessStep';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
+import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
 import uniformesImage from '@/assets/uniformes-empresariais.jpg';
 import briefingImage from '@/assets/process-briefing.jpg';
 import designImage from '@/assets/process-design.jpg';
 import productionImage from '@/assets/process-production.jpg';
 import deliveryImage from '@/assets/process-delivery.jpg';
-import portfolioTimeAguia from '@/assets/portfolio-time-aguia.jpg';
-import portfolioBasquete from '@/assets/portfolio-basquete-feminino.jpg';
-import portfolioEmpresaTech from '@/assets/portfolio-empresa-tech.jpg';
-
-const portfolioExamples = [
-  {
-    image: portfolioTimeAguia,
-    title: 'Jaqueta Time Águia',
-    description: 'Jaqueta corta vento personalizada para equipe esportiva'
-  },
-  {
-    image: portfolioBasquete,
-    title: 'Agasalho Esportivo',
-    description: 'Jaquetas para time de basquete com full print'
-  },
-  {
-    image: portfolioEmpresaTech,
-    title: 'Jaqueta Corporativa',
-    description: 'Jaquetas personalizadas para empresa de tecnologia'
-  }
-];
 
 const benefits = [
   'Full print ou estampas localizadas',
@@ -100,6 +81,8 @@ const faq = [
 ];
 
 export default function JaquetasCortatVento() {
+  const portfolioExamples = useMemo(() => getRandomPortfolioByCategory(['corporativo', 'personalizado'], 3), []);
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -189,8 +172,8 @@ export default function JaquetasCortatVento() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {portfolioExamples.map((example, index) => (
-              <div key={index} className="card-service group overflow-hidden">
+            {portfolioExamples.map((example) => (
+              <div key={example.id} className="card-service group overflow-hidden">
                 <div className="aspect-square overflow-hidden rounded-lg mb-4">
                   <img 
                     src={example.image} 

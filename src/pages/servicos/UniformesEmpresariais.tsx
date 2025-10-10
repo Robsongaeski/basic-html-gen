@@ -1,17 +1,17 @@
+import { useMemo } from 'react';
 import { MessageSquare, Building2, Users, Timer, CheckCircle, Star, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProcessStep from '@/components/sections/ProcessStep';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
+import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
 import empresariaisImage from '@/assets/uniformes-empresariais.jpg';
 import briefingImage from '@/assets/process-briefing.jpg';
 import designImage from '@/assets/process-design.jpg';
 import productionImage from '@/assets/process-production.jpg';
 import deliveryImage from '@/assets/process-delivery.jpg';
-import portfolioEmpresaTech from '@/assets/portfolio-empresa-tech.jpg';
-import portfolioFarmacia from '@/assets/portfolio-farmacia.jpg';
-import portfolioLoja from '@/assets/portfolio-camisetas-loja.jpg';
 
 export default function UniformesEmpresariais() {
+  const portfolioExamples = useMemo(() => getRandomPortfolioByCategory('corporativo', 3), []);
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
@@ -194,89 +194,35 @@ export default function UniformesEmpresariais() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="card-service group overflow-hidden">
-              <div className="aspect-square overflow-hidden rounded-lg mb-4">
-                <img 
-                  src={portfolioEmpresaTech} 
-                  alt="Empresa de Tecnologia"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
+            {portfolioExamples.map((example) => (
+              <div key={example.id} className="card-service group overflow-hidden">
+                <div className="aspect-square overflow-hidden rounded-lg mb-4">
+                  <img 
+                    src={example.image} 
+                    alt={example.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+                <h3 className="font-semibold text-lg text-foreground mb-2">
+                  {example.title}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  {example.description}
+                </p>
+                <Button asChild className="cta-whatsapp w-full">
+                  <a 
+                    href={`https://wa.me/554626041806?text=Olá! Gostaria de solicitar um orçamento para ${example.title}`}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2"
+                    onClick={() => handleWhatsAppClick(`Portfolio ${example.title}`)}
+                  >
+                    <MessageSquare size={16} />
+                    Solicitar Orçamento
+                  </a>
+                </Button>
               </div>
-              <h3 className="font-semibold text-lg text-foreground mb-2">
-                Empresa de Tecnologia
-              </h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Uniformes corporativos modernos e confortáveis
-              </p>
-              <Button asChild className="cta-whatsapp w-full">
-                <a 
-                  href="https://wa.me/554626041806?text=Olá! Gostaria de solicitar um orçamento para Empresa de Tecnologia"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2"
-                  onClick={() => handleWhatsAppClick('Portfolio Empresa de Tecnologia')}
-                >
-                  <MessageSquare size={16} />
-                  Solicitar Orçamento
-                </a>
-              </Button>
-            </div>
-
-            <div className="card-service group overflow-hidden">
-              <div className="aspect-square overflow-hidden rounded-lg mb-4">
-                <img 
-                  src={portfolioFarmacia} 
-                  alt="Rede de Farmácias"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <h3 className="font-semibold text-lg text-foreground mb-2">
-                Rede de Farmácias
-              </h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Uniformes profissionais para equipe de atendimento
-              </p>
-              <Button asChild className="cta-whatsapp w-full">
-                <a 
-                  href="https://wa.me/554626041806?text=Olá! Gostaria de solicitar um orçamento para Rede de Farmácias"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2"
-                  onClick={() => handleWhatsAppClick('Portfolio Rede de Farmácias')}
-                >
-                  <MessageSquare size={16} />
-                  Solicitar Orçamento
-                </a>
-              </Button>
-            </div>
-
-            <div className="card-service group overflow-hidden">
-              <div className="aspect-square overflow-hidden rounded-lg mb-4">
-                <img 
-                  src={portfolioLoja} 
-                  alt="Varejo e Comércio"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <h3 className="font-semibold text-lg text-foreground mb-2">
-                Varejo e Comércio
-              </h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Uniformes personalizados para loja
-              </p>
-              <Button asChild className="cta-whatsapp w-full">
-                <a 
-                  href="https://wa.me/554626041806?text=Olá! Gostaria de solicitar um orçamento para Varejo e Comércio"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2"
-                  onClick={() => handleWhatsAppClick('Portfolio Varejo e Comércio')}
-                >
-                  <MessageSquare size={16} />
-                  Solicitar Orçamento
-                </a>
-              </Button>
-            </div>
+            ))}
           </div>
         </div>
       </section>

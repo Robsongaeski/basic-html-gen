@@ -1,33 +1,14 @@
+import { useMemo } from 'react';
 import { MessageSquare, Layers, Palette, Timer, CheckCircle, Star, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProcessStep from '@/components/sections/ProcessStep';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
+import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
 import camisetasImage from '@/assets/camisetas-personalizadas.jpg';
 import briefingImage from '@/assets/process-briefing.jpg';
 import designImage from '@/assets/process-design.jpg';
 import productionImage from '@/assets/process-production.jpg';
 import deliveryImage from '@/assets/process-delivery.jpg';
-import portfolioFestival from '@/assets/portfolio-festival-musica.jpg';
-import portfolioEmpresaTech from '@/assets/portfolio-empresa-tech.jpg';
-import portfolioBasquete from '@/assets/portfolio-basquete-feminino.jpg';
-
-const portfolioExamples = [
-  {
-    image: portfolioFestival,
-    title: 'Moletons para Evento',
-    description: 'Moletons personalizados para festival de música'
-  },
-  {
-    image: portfolioEmpresaTech,
-    title: 'Moletom Corporativo',
-    description: 'Moletons com capuz para empresa de tecnologia'
-  },
-  {
-    image: portfolioBasquete,
-    title: 'Moletom Esportivo',
-    description: 'Agasalhos flanelados para time de basquete'
-  }
-];
 
 const benefits = [
   'Interior flanelado para conforto',
@@ -104,6 +85,8 @@ const faq = [
 ];
 
 export default function Moletons() {
+  const portfolioExamples = useMemo(() => getRandomPortfolioByCategory(['corporativo', 'personalizado'], 3), []);
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -193,8 +176,8 @@ export default function Moletons() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {portfolioExamples.map((example, index) => (
-              <div key={index} className="card-service group overflow-hidden">
+            {portfolioExamples.map((example) => (
+              <div key={example.id} className="card-service group overflow-hidden">
                 <div className="aspect-square overflow-hidden rounded-lg mb-4">
                   <img 
                     src={example.image} 

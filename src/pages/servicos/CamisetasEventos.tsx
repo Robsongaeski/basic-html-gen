@@ -1,33 +1,14 @@
+import { useMemo } from 'react';
 import { MessageSquare, Calendar, Users, Timer, CheckCircle, Star, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProcessStep from '@/components/sections/ProcessStep';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
+import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
 import eventosImage from '@/assets/camisetas-eventos.jpg';
 import briefingImage from '@/assets/process-briefing.jpg';
 import designImage from '@/assets/process-design.jpg';
 import productionImage from '@/assets/process-production.jpg';
 import deliveryImage from '@/assets/process-delivery.jpg';
-import portfolioFestival from '@/assets/portfolio-festival-musica.jpg';
-import portfolioBasquete from '@/assets/portfolio-basquete-feminino.jpg';
-import portfolioTimeAguia from '@/assets/portfolio-time-aguia.jpg';
-
-const portfolioExamples = [
-  {
-    image: portfolioFestival,
-    title: 'Festival de Música',
-    description: 'Camisetas personalizadas para grande evento musical'
-  },
-  {
-    image: portfolioBasquete,
-    title: 'Torneio Esportivo',
-    description: 'Uniformes para campeonato de basquete feminino'
-  },
-  {
-    image: portfolioTimeAguia,
-    title: 'Time Águia',
-    description: 'Camisetas personalizadas para equipe esportiva'
-  }
-];
 
 const benefits = ['Fortalece identidade do evento', 'Cria memórias duradouras', 'Marketing efetivo e visual', 'Engagement dos participantes', 'Qualidade para lembranças', 'Prazos de urgência'];
 const specifications = {
@@ -81,6 +62,8 @@ const faq = [{
   answer: 'Sim! Desde pequenos encontros até grandes festivais e conferências. Adequamos nossa produção ao seu projeto.'
 }];
 export default function CamisetasEventos() {
+  const portfolioExamples = useMemo(() => getRandomPortfolioByCategory('eventos', 3), []);
+  
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
@@ -159,8 +142,8 @@ export default function CamisetasEventos() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {portfolioExamples.map((example, index) => (
-              <div key={index} className="card-service group overflow-hidden">
+            {portfolioExamples.map((example) => (
+              <div key={example.id} className="card-service group overflow-hidden">
                 <div className="aspect-square overflow-hidden rounded-lg mb-4">
                   <img 
                     src={example.image} 

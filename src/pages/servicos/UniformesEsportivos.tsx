@@ -1,33 +1,14 @@
+import { useMemo } from 'react';
 import { MessageSquare, Users, Trophy, Timer, CheckCircle, Star, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProcessStep from '@/components/sections/ProcessStep';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
+import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
 import esportivosImage from '@/assets/uniformes-esportivos.jpg';
 import briefingImage from '@/assets/process-briefing.jpg';
 import designImage from '@/assets/process-design.jpg';
 import productionImage from '@/assets/process-production.jpg';
 import deliveryImage from '@/assets/process-delivery.jpg';
-import portfolioBasquete from '@/assets/portfolio-basquete-feminino.jpg';
-import portfolioTimeAguia from '@/assets/portfolio-time-aguia.jpg';
-import portfolioFestival from '@/assets/portfolio-festival-musica.jpg';
-
-const portfolioExamples = [
-  {
-    image: portfolioBasquete,
-    title: 'Basquete Feminino',
-    description: 'Uniformes completos para time de basquete'
-  },
-  {
-    image: portfolioTimeAguia,
-    title: 'Time Águia',
-    description: 'Uniformes personalizados com identidade visual forte'
-  },
-  {
-    image: portfolioFestival,
-    title: 'Equipe de Corrida',
-    description: 'Camisetas técnicas para maratona'
-  }
-];
 
 const benefits = ['Tecidos de alta performance', 'Design moderno e profissional', 'Numeração personalizada', 'Cores vibrantes e duráveis', 'Conforto e mobilidade', 'Qualidade atlética'];
 const specifications = {
@@ -82,6 +63,8 @@ const faq = [{
   answer: 'Absolutamente! Nossas estampas e tecidos são tratados para suportar lavagens frequentes sem desbotar.'
 }];
 export default function UniformesEsportivos() {
+  const portfolioExamples = useMemo(() => getRandomPortfolioByCategory('esportivo', 3), []);
+  
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
@@ -160,8 +143,8 @@ export default function UniformesEsportivos() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {portfolioExamples.map((example, index) => (
-              <div key={index} className="card-service group overflow-hidden">
+            {portfolioExamples.map((example) => (
+              <div key={example.id} className="card-service group overflow-hidden">
                 <div className="aspect-square overflow-hidden rounded-lg mb-4">
                   <img 
                     src={example.image} 
