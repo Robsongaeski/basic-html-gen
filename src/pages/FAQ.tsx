@@ -6,7 +6,7 @@ const faqData = [{
   category: 'Geral',
   questions: [{
     question: 'Qual o pedido mínimo?',
-    answer: 'Trabalhamos a partir de 10 peças para camisetas personalizadas e 14 peças para uniformes esportivos. Para uniformes empresariais, o mínimo também é de 10 peças.'
+    answer: 'Trabalhamos a partir de 1 peça conforme o produto escolhido. Oferecemos condições especiais para grandes volumes.'
   }, {
     question: 'Quanto tempo leva para produzir?',
     answer: 'O prazo padrão é de 7 a 15 dias úteis, dependendo do tipo de produto e quantidade. Para urgências, consulte nossa produção expressa.'
@@ -21,10 +21,10 @@ const faqData = [{
   category: 'Produtos & Qualidade',
   questions: [{
     question: 'Que tipos de tecido vocês utilizam?',
-    answer: '100% algodão, misto (algodão/poliéster), dry-fit, malha PV, piquet, oxford e outros tecidos especiais conforme necessidade do projeto.'
+    answer: '100% algodão, misto (algodão/poliéster), dry-fit UV50+, malha PV, piquet, brim e outros tecidos especiais conforme necessidade do projeto.'
   }, {
     question: 'As estampas são duráveis?',
-    answer: 'Sim! Utilizamos técnicas como silk screen, DTF e bordado com materiais de alta qualidade que garantem durabilidade mesmo após muitas lavagens.'
+    answer: 'Sim! Utilizamos técnicas como silk screen, Sublimação, DTF e bordado com materiais de alta qualidade que garantem durabilidade mesmo após muitas lavagens.'
   }, {
     question: 'Vocês fazem prova de peça?',
     answer: 'Para pedidos acima de 50 peças ou uniformes corporativos, produzimos uma peça piloto para aprovação antes da produção completa.'
@@ -36,7 +36,7 @@ const faqData = [{
   category: 'Pedidos & Pagamento',
   questions: [{
     question: 'Como faço um pedido?',
-    answer: 'Entre em contato pelo WhatsApp, conte sobre seu projeto e receba uma cotação personalizada. Após aprovação, iniciamos a produção.'
+    answer: 'Entre em contato pelo WhatsApp ou venha até nossa sede, conte sobre seu projeto e receba uma cotação personalizada. Após aprovação, iniciamos a produção.'
   }, {
     question: 'Quais formas de pagamento aceitam?',
     answer: 'PIX, cartão de crédito, débito e transferência bancária. Para empresas, oferecemos condições especiais de pagamento.'
@@ -46,15 +46,6 @@ const faqData = [{
   }, {
     question: 'Emitem nota fiscal?',
     answer: 'Sim, todos os pedidos são acompanhados de nota fiscal. Para empresas, oferecemos condições especiais de faturamento.'
-  }]
-}, {
-  category: 'Cuidados & Manutenção',
-  questions: [{
-    question: 'Como devo lavar as peças?',
-    answer: 'Lave em água fria, do avesso, sem alvejante. Para estampas, evite ferro direto sobre a arte. Seque à sombra quando possível.'
-  }, {
-    question: 'As cores podem desbotar?',
-    answer: 'Não, se seguidas as instruções de cuidado. Nossos processos e materiais garantem fixação permanente das cores.'
   }]
 }];
 export default function FAQ() {
