@@ -12,7 +12,10 @@ export default function WhatsAppFloat() {
       href="https://wa.me/554626041806"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg animate-pulse bg-[#25D366] text-white hover:bg-[#20BA5A] transition-all duration-300 hover:scale-110"
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg animate-pulse transition-all duration-300 hover:scale-110"
+      style={{ backgroundColor: '#25D366', color: '#ffffff' }}
+      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#20BA5A'}
+      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#25D366'}
       aria-label="Falar no WhatsApp"
       onClick={() => handleWhatsAppClick('WhatsApp Float Button')}
     >

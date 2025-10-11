@@ -9,12 +9,8 @@ import camisetasImage from '@/assets/camisetas-personalizadas.jpg';
 import esportivosImage from '@/assets/uniformes-esportivos.jpg';
 import empresariaisImage from '@/assets/uniformes-empresariais.jpg';
 import eventosImage from '@/assets/camisetas-eventos.jpg';
-import portfolioTimeAguia from '@/assets/portfolio-time-aguia.jpg';
-import portfolioFestival from '@/assets/portfolio-festival-musica.jpg';
-import portfolioTech from '@/assets/portfolio-empresa-tech.jpg';
-import portfolioLoja from '@/assets/portfolio-camisetas-loja.jpg';
-import portfolioBasquete from '@/assets/portfolio-basquete-feminino.jpg';
-import portfolioFarmacia from '@/assets/portfolio-farmacia.jpg';
+import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
+import { useMemo } from 'react';
 const services = [{
   title: 'Camisetas Personalizadas',
   description: 'Personalize suas camisetas com estampas exclusivas, alta qualidade e durabilidade garantida. Ideal para promoções, brinde e uso pessoal.',
@@ -53,49 +49,11 @@ const services = [{
   imageUrl: camisetasImage
 }];
 
-const portfolioHighlights = [{
-  id: 1,
-  title: 'Uniformes Time Águia FC',
-  category: 'Esportivo',
-  image: portfolioTimeAguia,
-  description: 'Uniformes completos para time de futebol com design moderno e tecidos de alta performance.'
-}, {
-  id: 2,
-  title: 'Camisetas Festival Música',
-  category: 'Eventos',
-  image: portfolioFestival,
-  description: 'Camisetas personalizadas para festival de música com 5 mil unidades produzidas.'
-}, {
-  id: 3,
-  title: 'Uniformes Empresa Tech',
-  category: 'Corporativo',
-  image: portfolioTech,
-  description: 'Uniformes corporativos elegantes para empresa de tecnologia com 200 colaboradores.'
-}, {
-  id: 4,
-  title: 'Camisetas Personalizadas Loja',
-  category: 'Personalizado',
-  image: portfolioLoja,
-  description: 'Linha de camisetas personalizadas para revenda em loja de roupas.'
-}, {
-  id: 5,
-  title: 'Uniformes Basquete Feminino',
-  category: 'Esportivo',
-  image: portfolioBasquete,
-  description: 'Uniformes para equipe feminina de basquete com design exclusivo.'
-}, {
-  id: 6,
-  title: 'Uniformes Rede Farmácias',
-  category: 'Corporativo',
-  image: portfolioFarmacia,
-  description: 'Uniformes padronizados para rede de farmácias com 50 lojas.'
-}];
-
-const categoryColors = {
-  'Esportivo': 'bg-green-100 text-green-800',
-  'Corporativo': 'bg-blue-100 text-blue-800',
-  'Eventos': 'bg-purple-100 text-purple-800',
-  'Personalizado': 'bg-orange-100 text-orange-800'
+const categoryColors: Record<string, string> = {
+  'esportivo': 'bg-green-100 text-green-800',
+  'corporativo': 'bg-blue-100 text-blue-800',
+  'eventos': 'bg-purple-100 text-purple-800',
+  'personalizado': 'bg-orange-100 text-orange-800'
 };
 
 const testimonials = [
@@ -149,6 +107,10 @@ const testimonials = [
   }
 ];
 export default function Servicos() {
+  const portfolioHighlights = useMemo(() => {
+    return getRandomPortfolioByCategory(['esportivo', 'corporativo', 'eventos', 'personalizado'], 6);
+  }, []);
+
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="section-padding bg-gradient-hero text-white">
@@ -198,8 +160,8 @@ export default function Servicos() {
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
                         <h3 className="font-semibold text-lg text-foreground">{item.title}</h3>
-                        <span className={`px-2 py-1 text-xs rounded-full ${categoryColors[item.category as keyof typeof categoryColors]}`}>
-                          {item.category}
+                        <span className={`px-2 py-1 text-xs rounded-full ${categoryColors[item.category]}`}>
+                          {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
                         </span>
                       </div>
                       <p className="text-muted-foreground text-sm line-clamp-2">
@@ -215,8 +177,8 @@ export default function Servicos() {
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
                         <h2 className="text-2xl font-bold text-foreground">{item.title}</h2>
-                        <span className={`px-3 py-1 text-sm rounded-full ${categoryColors[item.category as keyof typeof categoryColors]}`}>
-                          {item.category}
+                        <span className={`px-3 py-1 text-sm rounded-full ${categoryColors[item.category]}`}>
+                          {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
                         </span>
                       </div>
                       <p className="text-muted-foreground leading-relaxed">
