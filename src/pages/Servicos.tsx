@@ -58,51 +58,57 @@ const categoryColors: Record<string, string> = {
 
 const testimonials = [
   {
-    name: 'Carlos Eduardo Silva',
-    company: 'Águia FC',
-    content: 'A qualidade dos uniformes superou nossas expectativas! O tecido é excelente e as cores ficaram perfeitas. Toda a equipe adorou!',
+    name: 'Geane Barboza',
+    company: 'Cliente',
+    content: 'Gente, pra você que está procurando uma empresa de confiança pra fazer uniformes, eu super recomendo a Gatha Confecções!',
     rating: 5
   },
   {
-    name: 'Mariana Santos',
-    company: 'Festival de Música Verão Pop',
-    content: 'Produzimos 5 mil camisetas para o festival e a entrega foi pontual. A impressão ficou impecável e não desbotou depois das lavagens.',
+    name: 'RH Usiplast',
+    company: 'Usiplast',
+    content: 'Ficamos muito satisfeitos com o atendimento e a qualidade dos produtos. O cuidado, a pontualidade e o carinho no trabalho fazem toda a diferença. Recomendo de olhos fechados!',
     rating: 5
   },
   {
-    name: 'Roberto Almeida',
-    company: 'TechSolutions Ltda',
-    content: 'Uniformes corporativos de altíssima qualidade. O atendimento foi personalizado e o resultado final ficou elegante e profissional.',
+    name: 'Administrativo APAC',
+    company: 'APAC - PB',
+    content: 'Ótimo produto, os tamanhos estava conforme o pedido, vendedora muito atenciosa com o atendimento, prestativa. Agradeço a atenção e agilidade.',
     rating: 5
   },
   {
-    name: 'Juliana Rodrigues',
-    company: 'Loja Estilo Urbano',
-    content: 'Trabalho com confecção há anos e posso dizer: a Gatha é referência em qualidade. As peças têm acabamento perfeito!',
+    name: 'Gemio Mf2',
+    company: 'Cliente',
+    content: 'Melhor atendimento produto perfeito valor maravilhoso fiz esse moletom para trabalhar de segurança ficou top',
     rating: 5
   },
   {
-    name: 'Fernando Costa',
-    company: 'Basquete Feminino Estrelas',
-    content: 'Os uniformes ficaram incríveis! Design moderno, tecido respirável e ótimo caimento. A equipe se sentiu muito mais profissional.',
+    name: 'Fran Dias',
+    company: 'Fotografias Afetivas',
+    content: 'Uniformes de alta qualidade, e Exelente acabamento, super Recomendo.',
     rating: 5
   },
   {
-    name: 'Ana Paula Martins',
-    company: 'Farmácias Saúde Total',
-    content: 'Uniformizamos todas as 50 lojas da nossa rede. Processo muito profissional, do atendimento à entrega. Recomendo!',
+    name: 'Pamela',
+    company: 'Cliente',
+    content: 'Adoramos as camisetas DFT qualidade muito boa do tecido, atendimento e agilidade pra entregar as peças foram ótimas, super recomendo.',
     rating: 5
   },
   {
-    name: 'Lucas Fernandes',
-    company: 'Banda Rock na Veia',
-    content: 'Nossas camisetas de banda ficaram sensacionais! A qualidade da estampa é excelente e venderam muito bem nos shows.',
+    name: 'Claudia Natalina de Oliveira',
+    company: 'Cliente',
+    content: 'Empresa muito focada para atender bem o cliente, produtos maravilhosos com excelente qualidade, sempre adquiro camisetas e moletons e super recomendo.',
     rating: 5
   },
   {
-    name: 'Patrícia Oliveira',
-    company: 'Conferência Tech Brasil',
-    content: 'Entregaram 2 mil camisetas em tempo recorde sem perder a qualidade. Todos os participantes elogiaram o material!',
+    name: 'Emely Roman',
+    company: 'Cliente',
+    content: 'Qualidade impecável, ótimo atendimento. E preciso ressaltar a agilidade! Ao entrar em contato com eles, prontamente se dispuseram a me atender e entregar as camisetas na data prevista. Amamos as camisetas!!!',
+    rating: 5
+  },
+  {
+    name: 'Laerti Risso',
+    company: 'Cliente',
+    content: 'Empresa com excelência em confecções. Produtos de primeira linha, durabilidade impar e atendimento diferenciado! A camiseta personalisada que pedi ficou ótima! Recomendo...',
     rating: 5
   }
 ];

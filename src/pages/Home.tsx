@@ -90,17 +90,17 @@ const differentials = [{
   icon: Shirt
 }];
 const testimonials = [{
-  name: 'Carlos Silva',
-  company: 'Empresa ABC Ltda.',
-  content: 'Excelente qualidade nos uniformes da nossa equipe. Prazo cumprido e atendimento nota 10!'
+  name: 'Geane Barboza',
+  company: 'Cliente',
+  content: 'Gente, pra você que está procurando uma empresa de confiança pra fazer uniformes, eu super recomendo a Gatha Confecções!'
 }, {
-  name: 'Marina Santos',
-  company: 'Evento SportFest',
-  content: 'As camisetas do nosso festival ficaram incríveis. Todo mundo elogiou a qualidade e o design.'
+  name: 'RH Usiplast',
+  company: 'Usiplast',
+  content: 'Ficamos muito satisfeitos com o atendimento e a qualidade dos produtos. O cuidado, a pontualidade e o carinho no trabalho fazem toda a diferença. Recomendo de olhos fechados!'
 }, {
-  name: 'Roberto Costa',
-  company: 'Time Águia FC',
-  content: 'Uniformes esportivos de primeira qualidade. Nosso time se sentiu ainda mais profissional.'
+  name: 'Fran Dias',
+  company: 'Fotografias Afetivas',
+  content: 'Uniformes de alta qualidade, e Exelente acabamento, super Recomendo.'
 }];
 export default function Home() {
   return <div className="min-h-screen">
