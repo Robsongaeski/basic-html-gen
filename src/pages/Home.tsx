@@ -5,6 +5,8 @@ import ServiceCard from '@/components/sections/ServiceCard';
 import ProcessStep from '@/components/sections/ProcessStep';
 import TestimonialCard from '@/components/sections/TestimonialCard';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
+import { getRandomTestimonials } from '@/lib/testimonialsData';
+import { useMemo } from 'react';
 import heroImage from '@/assets/hero-confeccao.jpg';
 import camisetasImage from '@/assets/camisetas-personalizadas.jpg';
 import esportivosImage from '@/assets/uniformes-esportivos.jpg';
@@ -89,20 +91,9 @@ const differentials = [{
   description: 'Amplo catálogo de tecidos e acabamentos especiais.',
   icon: Shirt
 }];
-const testimonials = [{
-  name: 'Geane Barboza',
-  company: 'Cliente',
-  content: 'Gente, pra você que está procurando uma empresa de confiança pra fazer uniformes, eu super recomendo a Gatha Confecções!'
-}, {
-  name: 'RH Usiplast',
-  company: 'Usiplast',
-  content: 'Ficamos muito satisfeitos com o atendimento e a qualidade dos produtos. O cuidado, a pontualidade e o carinho no trabalho fazem toda a diferença. Recomendo de olhos fechados!'
-}, {
-  name: 'Fran Dias',
-  company: 'Fotografias Afetivas',
-  content: 'Uniformes de alta qualidade, e Exelente acabamento, super Recomendo.'
-}];
 export default function Home() {
+  // Seleciona 3 depoimentos aleatórios a cada render
+  const randomTestimonials = useMemo(() => getRandomTestimonials(3), []);
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
@@ -226,7 +217,7 @@ export default function Home() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map(testimonial => <TestimonialCard key={testimonial.name} {...testimonial} />)}
+            {randomTestimonials.map((testimonial, index) => <TestimonialCard key={`${testimonial.name}-${index}`} {...testimonial} />)}
           </div>
         </div>
       </section>
