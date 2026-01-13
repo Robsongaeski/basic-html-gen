@@ -98,7 +98,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Gatha Confecções - Fábrica Moderna" className="w-full h-full object-cover" />
+          <img src={heroImage} alt="Gatha Confecções - Fábrica Moderna" loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
         

@@ -91,6 +91,9 @@ export default function JaquetasCortatVento() {
           <img 
             src={uniformesImage} 
             alt="Jaquetas Corta Vento Personalizadas Gatha" 
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover" 
           />
           <div className="absolute inset-0 bg-black/60"></div>
@@ -178,6 +181,8 @@ export default function JaquetasCortatVento() {
                   <img 
                     src={example.image} 
                     alt={example.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>

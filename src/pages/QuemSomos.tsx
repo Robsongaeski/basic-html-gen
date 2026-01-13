@@ -40,7 +40,7 @@ export default function QuemSomos() {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Sobre a Gatha Confecções" className="w-full h-full object-cover" />
+          <img src={heroImage} alt="Sobre a Gatha Confecções" loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
         
@@ -133,7 +133,7 @@ export default function QuemSomos() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {team.map(member => <div key={member.name} className="card-service text-center">
                 <div className="mb-4 overflow-hidden rounded-lg">
-                  <img src={member.image} alt={member.name} className="w-full h-48 object-cover" />
+                  <img src={member.image} alt={member.name} loading="lazy" decoding="async" className="w-full h-48 object-cover" />
                 </div>
                 <h3 className="font-semibold text-lg text-foreground mb-2">{member.name}</h3>
                 <p className="text-muted-foreground">{member.role}</p>

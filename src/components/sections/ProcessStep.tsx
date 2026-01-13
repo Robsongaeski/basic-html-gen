@@ -16,6 +16,8 @@ export default function ProcessStep({ step, title, description, icon: Icon, imag
         <img
           src={image}
           alt={title}
+          loading="lazy"
+          decoding="async"
           className="w-full h-48 object-cover rounded-lg shadow-md group-hover:shadow-lg transition-all"
         />
         <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2">
