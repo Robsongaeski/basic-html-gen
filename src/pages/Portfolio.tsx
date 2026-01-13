@@ -545,7 +545,7 @@ export default function Portfolio() {
                 <DialogTrigger asChild>
                   <div className="card-service cursor-pointer group">
                     <div className="relative mb-4 overflow-hidden rounded-lg">
-                      <img src={item.image} alt={item.title} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
+                      <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <Eye className="w-8 h-8 text-white" />
                       </div>
@@ -567,7 +567,7 @@ export default function Portfolio() {
                 
                 <DialogContent className="max-w-2xl">
                   <div className="space-y-4">
-                    <img src={item.image} alt={item.title} className="w-full h-64 object-cover rounded-lg" />
+                    <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="w-full h-64 object-cover rounded-lg" />
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
                         <h2 className="text-2xl font-bold text-foreground">{item.title}</h2>

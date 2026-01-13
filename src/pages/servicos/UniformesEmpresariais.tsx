@@ -16,7 +16,7 @@ export default function UniformesEmpresariais() {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={empresariaisImage} alt="Uniformes Empresariais Gatha" className="w-full h-full object-cover" />
+          <img src={empresariaisImage} alt="Uniformes Empresariais Gatha" loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
         
@@ -200,6 +200,8 @@ export default function UniformesEmpresariais() {
                   <img
                     src={example.image} 
                     alt={example.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>

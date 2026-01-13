@@ -18,6 +18,8 @@ export default function ServiceCard({ title, description, icon: Icon, href, imag
           <img
             src={imageUrl}
             alt={title}
+            loading="lazy"
+            decoding="async"
             className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
