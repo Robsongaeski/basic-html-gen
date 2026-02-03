@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import ProcessStep from '@/components/sections/ProcessStep';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
 import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
+import SEOHead from '@/components/seo/SEOHead';
+import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
 import empresariaisImage from '@/assets/uniformes-empresariais.jpg';
 import briefingImage from '@/assets/process-briefing.jpg';
 import designImage from '@/assets/process-design.jpg';
@@ -12,13 +14,32 @@ import deliveryImage from '@/assets/process-delivery.jpg';
 
 export default function UniformesEmpresariais() {
   const portfolioExamples = useMemo(() => getRandomPortfolioByCategory('corporativo', 3), []);
-  return <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={empresariaisImage} alt="Uniformes Empresariais Gatha" loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/60"></div>
-        </div>
+  
+  return (
+    <>
+      <SEOHead 
+        title="Uniformes Empresariais"
+        description="Uniformes empresariais e corporativos personalizados. Camisas polo, camisetas e jalecos com bordado ou estampa de logo. Produção própria em Pato Branco - PR."
+        url="/servicos/uniformes-empresariais"
+      />
+      <ServiceSchema 
+        name="Uniformes Empresariais"
+        description="Uniformes corporativos sob medida que fortalecem a identidade da empresa e transmitem confiança aos clientes."
+        category="Confecção Corporativa"
+      />
+      <BreadcrumbSchema items={[
+        { name: 'Início', url: '/' },
+        { name: 'Serviços', url: '/servicos' },
+        { name: 'Uniformes Empresariais', url: '/servicos/uniformes-empresariais' }
+      ]} />
+      
+      <div className="min-h-screen">
+        {/* Hero Section */}
+        <section className="relative py-20 lg:py-32 overflow-hidden" aria-labelledby="empresariais-heading">
+          <div className="absolute inset-0">
+            <img src={empresariaisImage} alt="Uniformes Empresariais e corporativos personalizados" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/60"></div>
+          </div>
         
         <div className="relative container-responsive">
           <div className="max-w-4xl">
@@ -371,5 +392,7 @@ export default function UniformesEmpresariais() {
           </Button>
         </div>
       </section>
-    </div>;
+    </div>
+    </>
+  );
 }

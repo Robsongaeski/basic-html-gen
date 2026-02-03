@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import ProcessStep from '@/components/sections/ProcessStep';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
 import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
+import SEOHead from '@/components/seo/SEOHead';
+import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
 import esportivosImage from '@/assets/uniformes-esportivos.jpg';
 import briefingImage from '@/assets/process-briefing.jpg';
 import designImage from '@/assets/process-design.jpg';
@@ -65,13 +67,31 @@ const faq = [{
 export default function UniformesEsportivos() {
   const portfolioExamples = useMemo(() => getRandomPortfolioByCategory('esportivo', 3), []);
   
-  return <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={esportivosImage} alt="Uniformes Esportivos Gatha" loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/60"></div>
-        </div>
+  return (
+    <>
+      <SEOHead 
+        title="Uniformes Esportivos"
+        description="Uniformes esportivos profissionais para futebol, vôlei, basquete e outras modalidades. Tecidos Dry-Fit UV50+, design moderno. Produção própria em Pato Branco - PR."
+        url="/servicos/uniformes-esportivos"
+      />
+      <ServiceSchema 
+        name="Uniformes Esportivos"
+        description="Uniformes profissionais para equipes esportivas com design moderno, tecidos de alta performance e personalização completa."
+        category="Confecção Esportiva"
+      />
+      <BreadcrumbSchema items={[
+        { name: 'Início', url: '/' },
+        { name: 'Serviços', url: '/servicos' },
+        { name: 'Uniformes Esportivos', url: '/servicos/uniformes-esportivos' }
+      ]} />
+      
+      <div className="min-h-screen">
+        {/* Hero Section */}
+        <section className="relative py-20 lg:py-32 overflow-hidden" aria-labelledby="esportivos-heading">
+          <div className="absolute inset-0">
+            <img src={esportivosImage} alt="Uniformes Esportivos profissionais para times e equipes" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/60"></div>
+          </div>
         
         <div className="relative container-responsive">
           <div className="max-w-4xl">
@@ -243,5 +263,7 @@ export default function UniformesEsportivos() {
           </Button>
         </div>
       </section>
-    </div>;
+    </div>
+    </>
+  );
 }

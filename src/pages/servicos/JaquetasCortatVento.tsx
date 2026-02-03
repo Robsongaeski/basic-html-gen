@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import ProcessStep from '@/components/sections/ProcessStep';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
 import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
+import SEOHead from '@/components/seo/SEOHead';
+import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
 import uniformesImage from '@/assets/uniformes-empresariais.jpg';
 import briefingImage from '@/assets/process-briefing.jpg';
 import designImage from '@/assets/process-design.jpg';
@@ -84,18 +86,37 @@ export default function JaquetasCortatVento() {
   const portfolioExamples = useMemo(() => getRandomPortfolioByCategory(['corporativo', 'personalizado'], 3), []);
   
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src={uniformesImage} 
-            alt="Jaquetas Corta Vento Personalizadas Gatha" 
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="w-full h-full object-cover" 
-          />
+    <>
+      <SEOHead 
+        title="Jaquetas Corta Vento"
+        description="Jaquetas corta vento personalizadas em full print ou estampas localizadas. Tecidos impermeáveis, proteção contra vento. Produção própria em Pato Branco - PR."
+        url="/servicos/jaquetas-corta-vento"
+      />
+      <ServiceSchema 
+        name="Jaquetas Corta Vento"
+        description="Jaquetas corta vento totalmente personalizadas em full print ou com estampas localizadas. Proteção e estilo para sua equipe."
+        category="Confecção"
+      />
+      <BreadcrumbSchema items={[
+        { name: 'Início', url: '/' },
+        { name: 'Serviços', url: '/servicos' },
+        { name: 'Jaquetas Corta Vento', url: '/servicos/jaquetas-corta-vento' }
+      ]} />
+      
+      <div className="min-h-screen">
+        {/* Hero Section */}
+        <section className="relative py-20 lg:py-32 overflow-hidden" aria-labelledby="jaquetas-heading">
+          <div className="absolute inset-0">
+            <img 
+              src={uniformesImage} 
+              alt="Jaquetas Corta Vento Personalizadas para empresas e equipes" 
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              width={1920}
+              height={1080}
+              className="w-full h-full object-cover" 
+            />
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
         
@@ -280,5 +301,6 @@ export default function JaquetasCortatVento() {
         </div>
       </section>
     </div>
+    </>
   );
 }
