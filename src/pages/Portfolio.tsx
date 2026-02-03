@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
 import TestimonialCard from '@/components/sections/TestimonialCard';
+import SEOHead from '@/components/seo/SEOHead';
+import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 import portfolioTimeAguia from '@/assets/portfolio-time-aguia.jpg';
 import portfolioFestival from '@/assets/portfolio-festival-musica.jpg';
 import portfolioTech from '@/assets/portfolio-empresa-tech.jpg';
@@ -515,19 +517,32 @@ const testimonials = [
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState('todos');
   const filteredItems = portfolioItems.filter(item => selectedCategory === 'todos' || item.category === selectedCategory);
-  return <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="section-padding bg-gradient-hero text-white">
-        <div className="container-responsive text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-950">
-            Nosso Portfólio
-          </h1>
-          <p className="text-xl max-w-3xl mx-auto leading-relaxed text-gray-950">
-            Conheça alguns dos projetos que desenvolvemos com carinho e qualidade. 
-            Cada peça conta uma história única de parceria e excelência.
-          </p>
-        </div>
-      </section>
+  
+  return (
+    <>
+      <SEOHead 
+        title="Portfólio"
+        description="Confira nosso portfólio de uniformes esportivos, corporativos, camisetas personalizadas e peças para eventos. Mais de 1000 projetos realizados."
+        url="/portfolio"
+      />
+      <BreadcrumbSchema items={[
+        { name: 'Início', url: '/' },
+        { name: 'Portfólio', url: '/portfolio' }
+      ]} />
+      
+      <div className="min-h-screen">
+        {/* Hero Section */}
+        <section className="section-padding bg-gradient-hero text-white" aria-labelledby="portfolio-heading">
+          <div className="container-responsive text-center">
+            <h1 id="portfolio-heading" className="text-4xl md:text-5xl font-bold mb-6 text-gray-950">
+              Nosso Portfólio
+            </h1>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed text-gray-950">
+              Conheça alguns dos projetos que desenvolvemos com carinho e qualidade. 
+              Cada peça conta uma história única de parceria e excelência.
+            </p>
+          </div>
+        </section>
 
       {/* Portfolio Section */}
       <section className="section-padding bg-background">
@@ -645,6 +660,8 @@ export default function Portfolio() {
             </a>
           </Button>
         </div>
-      </section>
-    </div>;
+        </section>
+      </div>
+    </>
+  );
 }

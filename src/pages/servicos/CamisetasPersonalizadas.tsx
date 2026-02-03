@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import ProcessStep from '@/components/sections/ProcessStep';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
 import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
+import SEOHead from '@/components/seo/SEOHead';
+import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
 import camisetasImage from '@/assets/camisetas-personalizadas.jpg';
 import briefingImage from '@/assets/process-briefing.jpg';
 import designImage from '@/assets/process-design.jpg';
@@ -61,9 +63,27 @@ const faq = [{
 export default function CamisetasPersonalizadas() {
   const portfolioExamples = useMemo(() => getRandomPortfolioByCategory('personalizado', 3), []);
   
-  return <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
+  return (
+    <>
+      <SEOHead 
+        title="Camisetas Personalizadas"
+        description="Camisetas personalizadas com estampas exclusivas em silk screen, sublimação e DTF. Alta qualidade, durabilidade garantida. Produção própria em Pato Branco - PR."
+        url="/servicos/camisetas-personalizadas"
+      />
+      <ServiceSchema 
+        name="Camisetas Personalizadas"
+        description="Personalização de camisetas com estampas exclusivas, alta qualidade e durabilidade garantida. Perfeitas para uniformes, eventos, promoções ou uso pessoal."
+        category="Confecção"
+      />
+      <BreadcrumbSchema items={[
+        { name: 'Início', url: '/' },
+        { name: 'Serviços', url: '/servicos' },
+        { name: 'Camisetas Personalizadas', url: '/servicos/camisetas-personalizadas' }
+      ]} />
+      
+      <div className="min-h-screen">
+        {/* Hero Section */}
+        <section className="relative py-20 lg:py-32 overflow-hidden" aria-labelledby="camisetas-heading">
         <div className="absolute inset-0">
           <img src={camisetasImage} alt="Camisetas Personalizadas Gatha" loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/60"></div>
@@ -71,7 +91,7 @@ export default function CamisetasPersonalizadas() {
         
         <div className="relative container-responsive">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            <h1 id="camisetas-heading" className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               Camisetas Personalizadas
             </h1>
             
@@ -239,5 +259,7 @@ export default function CamisetasPersonalizadas() {
           </Button>
         </div>
       </section>
-    </div>;
+    </div>
+    </>
+  );
 }

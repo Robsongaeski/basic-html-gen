@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import ProcessStep from '@/components/sections/ProcessStep';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
 import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
+import SEOHead from '@/components/seo/SEOHead';
+import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
 import eventosImage from '@/assets/camisetas-eventos.jpg';
 import briefingImage from '@/assets/process-briefing.jpg';
 import designImage from '@/assets/process-design.jpg';
@@ -64,13 +66,31 @@ const faq = [{
 export default function CamisetasEventos() {
   const portfolioExamples = useMemo(() => getRandomPortfolioByCategory('eventos', 3), []);
   
-  return <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={eventosImage} alt="Camisetas para Eventos Gatha" loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/60"></div>
-        </div>
+  return (
+    <>
+      <SEOHead 
+        title="Camisetas para Eventos"
+        description="Camisetas personalizadas para eventos, festivais, formaturas e campanhas. Produção expressa disponível. Qualidade para lembranças duradouras. Pato Branco - PR."
+        url="/servicos/camisetas-para-eventos"
+      />
+      <ServiceSchema 
+        name="Camisetas para Eventos"
+        description="Camisetas personalizadas para eventos que marcam presença, fortalecem a marca e criam memórias duradouras."
+        category="Confecção para Eventos"
+      />
+      <BreadcrumbSchema items={[
+        { name: 'Início', url: '/' },
+        { name: 'Serviços', url: '/servicos' },
+        { name: 'Camisetas para Eventos', url: '/servicos/camisetas-para-eventos' }
+      ]} />
+      
+      <div className="min-h-screen">
+        {/* Hero Section */}
+        <section className="relative py-20 lg:py-32 overflow-hidden" aria-labelledby="eventos-heading">
+          <div className="absolute inset-0">
+            <img src={eventosImage} alt="Camisetas para Eventos, festivais e formaturas" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/60"></div>
+          </div>
         
         <div className="relative container-responsive">
           <div className="max-w-4xl">
@@ -242,5 +262,7 @@ export default function CamisetasEventos() {
           </Button>
         </div>
       </section>
-    </div>;
+    </div>
+    </>
+  );
 }
