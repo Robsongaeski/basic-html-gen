@@ -576,6 +576,19 @@ export default function Portfolio() {
                       <p className="text-muted-foreground text-sm line-clamp-2">
                         {item.description}
                       </p>
+                      <a
+                        href={`https://wa.me/554626041806?text=${encodeURIComponent(`Olá, tenho interesse em fazer algo assim: ${item.title}`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-green-600 hover:text-green-700 transition-colors pt-1"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleWhatsAppClick(`Portfolio Card - ${item.title}`);
+                        }}
+                      >
+                        <MessageCircle size={15} />
+                        Quero algo assim
+                      </a>
                     </div>
                   </div>
                 </DialogTrigger>
