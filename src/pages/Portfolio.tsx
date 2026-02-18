@@ -87,6 +87,16 @@ import portfolioEsportivoPernalonga from '@/assets/portfolio-esportivo-pernalong
 import portfolioEsportivoPolvoRosa from '@/assets/portfolio-esportivo-polvo-rosa.jpg';
 import portfolioEsportivoPanteraVerde from '@/assets/portfolio-esportivo-pantera-verde.jpg';
 import portfolioEsportivoFenixRoxo from '@/assets/portfolio-esportivo-fenix-roxo.jpg';
+import portfolioCaldatoDiesel from '@/assets/portfolio-caldato-diesel.jpg';
+import portfolioBodyOzmap from '@/assets/portfolio-body-ozmap.jpg';
+import portfolioCalcaHazbier from '@/assets/portfolio-calca-hazbier.jpg';
+import portfolioBrunoSouzaDance from '@/assets/portfolio-bruno-souza-dance.jpg';
+import portfolioPoloSiontek from '@/assets/portfolio-polo-siontek.jpg';
+import portfolioDiaDasMaes from '@/assets/portfolio-dia-das-maes.jpg';
+import portfolioBertuolCarros from '@/assets/portfolio-bertuol-carros.jpg';
+import portfolioGcaGrupo from '@/assets/portfolio-gca-grupo.jpg';
+import portfolioLoteriasCaixa from '@/assets/portfolio-loterias-caixa.jpg';
+import portfolioBodyViasoft from '@/assets/portfolio-body-viasoft.jpg';
 
 // Portfolio items with real work examples
 const portfolioItems = [{
@@ -527,6 +537,66 @@ const portfolioItems = [{
   category: 'esportivo',
   image: portfolioEsportivoFenixRoxo,
   description: 'Uniforme esportivo branco e roxo com fênix e gradiente moderno.'
+}, {
+  id: 84,
+  title: 'Camiseta Caldato Diesel Euro Truck',
+  category: 'corporativo',
+  image: portfolioCaldatoDiesel,
+  description: 'Camiseta frente e costas para mecânica diesel com estampa detalhada de caminhão.'
+}, {
+  id: 85,
+  title: 'Body Infantil OZmap',
+  category: 'corporativo',
+  image: portfolioBodyOzmap,
+  description: 'Body infantil personalizado com logo da empresa de tecnologia OZmap.'
+}, {
+  id: 86,
+  title: 'Calça Cargo HazBier',
+  category: 'corporativo',
+  image: portfolioCalcaHazbier,
+  description: 'Calça cargo preta personalizada com bordado para cervejaria HazBier.'
+}, {
+  id: 87,
+  title: 'Camiseta Bruno Souza Dance',
+  category: 'personalizado',
+  image: portfolioBrunoSouzaDance,
+  description: 'Camiseta personalizada para professor de dança com arte digital exclusiva.'
+}, {
+  id: 88,
+  title: 'Polo Siontek Engenharia',
+  category: 'corporativo',
+  image: portfolioPoloSiontek,
+  description: 'Camisa polo corporativa frente e costas para empresa de engenharia e tecnologia.'
+}, {
+  id: 89,
+  title: 'Camiseta Dia das Mães',
+  category: 'eventos',
+  image: portfolioDiaDasMaes,
+  description: 'Camiseta comemorativa para Dia das Mães com tipografia elegante.'
+}, {
+  id: 90,
+  title: 'Camiseta Bertuol Carros',
+  category: 'personalizado',
+  image: portfolioBertuolCarros,
+  description: 'Camiseta personalizada com ilustrações de carros de luxo frente e costas.'
+}, {
+  id: 91,
+  title: 'Camiseta GCA Grupo',
+  category: 'personalizado',
+  image: portfolioGcaGrupo,
+  description: 'Camiseta personalizada para grupo de amigos com arte estilo cartoon.'
+}, {
+  id: 92,
+  title: 'Camiseta Loterias Caixa',
+  category: 'corporativo',
+  image: portfolioLoteriasCaixa,
+  description: 'Uniformes corporativos para lotérica com logo oficial frente e costas.'
+}, {
+  id: 93,
+  title: 'Body Infantil Viasoft',
+  category: 'corporativo',
+  image: portfolioBodyViasoft,
+  description: 'Bodies infantis personalizados para empresa de tecnologia com design divertido.'
 }];
 const categories = [{
   id: 'todos',
