@@ -65,7 +65,7 @@ import portfolioTerceiraoRosa from '@/assets/portfolio-terceirao-rosa.jpg';
 import portfolioTimeFrizon from '@/assets/portfolio-time-frizon.jpg';
 import portfolioTimePlanalto from '@/assets/portfolio-time-planalto.jpg';
 
-export type PortfolioCategory = 'esportivo' | 'eventos' | 'corporativo' | 'personalizado';
+export type PortfolioCategory = 'esportivo' | 'eventos' | 'corporativo' | 'personalizado' | 'terceirao';
 
 export interface PortfolioItem {
   id: number;

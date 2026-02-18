@@ -72,6 +72,11 @@ import portfolioTerceiraoLaranja from '@/assets/portfolio-terceirao-laranja.jpg'
 import portfolioTerceiraoRosa from '@/assets/portfolio-terceirao-rosa.jpg';
 import portfolioTimeFrizon from '@/assets/portfolio-time-frizon.jpg';
 import portfolioTimePlanalto from '@/assets/portfolio-time-planalto.jpg';
+import portfolioTerceiraoGraffiti from '@/assets/portfolio-terceirao-graffiti.jpg';
+import portfolioTerceiraoUrsinhoRosa from '@/assets/portfolio-terceirao-ursinho-rosa.jpg';
+import portfolioTerceiraoXadrez from '@/assets/portfolio-terceirao-xadrez.jpg';
+import portfolioTerceiraoNonoAno from '@/assets/portfolio-terceirao-nono-ano.jpg';
+import portfolioTerceiraoMoletom from '@/assets/portfolio-terceirao-moletom.jpg';
 
 // Portfolio items with real work examples
 const portfolioItems = [{
@@ -401,25 +406,25 @@ const portfolioItems = [{
 }, {
   id: 63,
   title: 'Camisetas Terceirão 2025 Azul',
-  category: 'eventos',
+  category: 'terceirao',
   image: portfolioTerceiraoAzul,
   description: 'Camisetas de formatura do terceiro ano com design moderno e personalizado com nome.'
 }, {
   id: 64,
   title: 'Camisetas Terceirão 2025 Ursinho',
-  category: 'eventos',
+  category: 'terceirao',
   image: portfolioTerceiraoUrsinho,
   description: 'Camisetas de formatura com ilustração criativa de ursinho em pink.'
 }, {
   id: 65,
   title: 'Camisetas Terceirão 2025',
-  category: 'eventos',
+  category: 'terceirao',
   image: portfolioTerceiraoLaranja,
   description: 'Camisetas de formatura com design em  retrô.'
 }, {
   id: 66,
   title: 'Uniformes Terceirão Rosa Gradiente',
-  category: 'eventos',
+  category: 'terceirao',
   image: portfolioTerceiraoRosa,
   description: 'Camiseta Terceirão personalizada.'
 }, {
@@ -434,6 +439,36 @@ const portfolioItems = [{
   category: 'esportivo',
   image: portfolioTimePlanalto,
   description: 'Uniformes de futebol em azul claro com listras e kit completo.'
+}, {
+  id: 69,
+  title: 'Camiseta Terceirão Graffiti 2025',
+  category: 'terceirao',
+  image: portfolioTerceiraoGraffiti,
+  description: 'Camiseta terceirão com arte graffiti exclusiva e personalização com nome.'
+}, {
+  id: 70,
+  title: 'Camiseta Terceirão Ursinho 2025',
+  category: 'terceirao',
+  image: portfolioTerceiraoUrsinhoRosa,
+  description: 'Camiseta terceirão com ilustração criativa de ursinho em estilo urbano.'
+}, {
+  id: 71,
+  title: 'Camiseta Terceirão Xadrez 2025',
+  category: 'terceirao',
+  image: portfolioTerceiraoXadrez,
+  description: 'Camiseta terceirão com design xadrez retrô e personalização com nome.'
+}, {
+  id: 72,
+  title: 'Camiseta Formandos Nono Ano 2025',
+  category: 'terceirao',
+  image: portfolioTerceiraoNonoAno,
+  description: 'Camiseta de formandos do 9º ano com arte temática e personalização.'
+}, {
+  id: 73,
+  title: 'Moletom Terceirão 2025',
+  category: 'terceirao',
+  image: portfolioTerceiraoMoletom,
+  description: 'Moletom terceirão com arte graffiti, capuz e personalização com nome.'
 }];
 const categories = [{
   id: 'todos',
@@ -448,15 +483,31 @@ const categories = [{
   id: 'eventos',
   name: 'Eventos'
 }, {
+  id: 'terceirao',
+  name: 'Terceirão'
+}, {
   id: 'personalizado',
   name: 'Personalizado'
 }];
-const categoryColors = {
+const categoryColors: Record<string, string> = {
   esportivo: 'bg-green-100 text-green-800',
   corporativo: 'bg-blue-100 text-blue-800',
   eventos: 'bg-purple-100 text-purple-800',
+  terceirao: 'bg-pink-100 text-pink-800',
   personalizado: 'bg-orange-100 text-orange-800'
 };
+
+// Função para embaralhar array (Fisher-Yates)
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+const shuffledPortfolioItems = shuffleArray(portfolioItems);
 
 const testimonials = [
   {
@@ -516,7 +567,7 @@ const testimonials = [
 ];
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState('todos');
-  const filteredItems = portfolioItems.filter(item => selectedCategory === 'todos' || item.category === selectedCategory);
+  const filteredItems = shuffledPortfolioItems.filter(item => selectedCategory === 'todos' || item.category === selectedCategory);
   
   return (
     <>
