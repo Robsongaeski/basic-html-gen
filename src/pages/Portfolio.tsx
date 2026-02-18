@@ -595,7 +595,7 @@ export default function Portfolio() {
                 
                 <DialogContent className="max-w-2xl">
                   <div className="space-y-4">
-                    <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="w-full h-64 object-cover rounded-lg" />
+                    <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="w-full h-auto object-contain rounded-lg max-h-[60vh]" />
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
                         <h2 className="text-2xl font-bold text-foreground">{item.title}</h2>
