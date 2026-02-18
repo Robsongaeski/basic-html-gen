@@ -77,6 +77,16 @@ import portfolioTerceiraoUrsinhoRosa from '@/assets/portfolio-terceirao-ursinho-
 import portfolioTerceiraoXadrez from '@/assets/portfolio-terceirao-xadrez.jpg';
 import portfolioTerceiraoNonoAno from '@/assets/portfolio-terceirao-nono-ano.jpg';
 import portfolioTerceiraoMoletom from '@/assets/portfolio-terceirao-moletom.jpg';
+import portfolioTerceiraoDragaoAzul from '@/assets/portfolio-terceirao-dragao-azul.jpg';
+import portfolioEsportivoDragaoDourado from '@/assets/portfolio-esportivo-dragao-dourado.jpg';
+import portfolioEsportivoDragaoDourado2 from '@/assets/portfolio-esportivo-dragao-dourado2.jpg';
+import portfolioEsportivoFenixBranco from '@/assets/portfolio-esportivo-fenix-branco.jpg';
+import portfolioEsportivoDragaoRoxo from '@/assets/portfolio-esportivo-dragao-roxo.jpg';
+import portfolioEsportivoMeninasSuper from '@/assets/portfolio-esportivo-meninas-super.jpg';
+import portfolioEsportivoPernalonga from '@/assets/portfolio-esportivo-pernalonga.jpg';
+import portfolioEsportivoPolvoRosa from '@/assets/portfolio-esportivo-polvo-rosa.jpg';
+import portfolioEsportivoPanteraVerde from '@/assets/portfolio-esportivo-pantera-verde.jpg';
+import portfolioEsportivoFenixRoxo from '@/assets/portfolio-esportivo-fenix-roxo.jpg';
 
 // Portfolio items with real work examples
 const portfolioItems = [{
@@ -457,6 +467,66 @@ const portfolioItems = [{
   category: 'terceirao',
   image: portfolioTerceiraoMoletom,
   description: 'Moletom terceirão com arte graffiti, capuz e personalização com nome.'
+}, {
+  id: 74,
+  title: 'Camiseta Terceirão Dragão Azul 2025',
+  category: 'terceirao',
+  image: portfolioTerceiraoDragaoAzul,
+  description: 'Camiseta terceirão com arte de dragão oriental em azul marinho e personalização.'
+}, {
+  id: 75,
+  title: 'Uniforme Interclasses Dragão Dourado',
+  category: 'esportivo',
+  image: portfolioEsportivoDragaoDourado,
+  description: 'Uniforme esportivo com dragão dourado em preto e detalhes gold.'
+}, {
+  id: 76,
+  title: 'Uniforme Interclasses Dragão Gold',
+  category: 'esportivo',
+  image: portfolioEsportivoDragaoDourado2,
+  description: 'Uniforme esportivo preto com arte de dragão em tons dourados.'
+}, {
+  id: 77,
+  title: 'Uniforme Interclasses Fênix Branco',
+  category: 'esportivo',
+  image: portfolioEsportivoFenixBranco,
+  description: 'Uniforme esportivo branco com fênix e chamas em azul e preto.'
+}, {
+  id: 78,
+  title: 'Uniforme Interclasses Dragão Roxo',
+  category: 'esportivo',
+  image: portfolioEsportivoDragaoRoxo,
+  description: 'Uniforme esportivo preto com dragão e raios em roxo neon.'
+}, {
+  id: 79,
+  title: 'Uniforme Interclasses Meninas Super',
+  category: 'esportivo',
+  image: portfolioEsportivoMeninasSuper,
+  description: 'Uniforme esportivo branco com estampa das Meninas Superpoderosas.'
+}, {
+  id: 80,
+  title: 'Uniforme Interclasses Pernalonga',
+  category: 'esportivo',
+  image: portfolioEsportivoPernalonga,
+  description: 'Uniforme esportivo laranja com estampa do Pernalonga em design arrojado.'
+}, {
+  id: 81,
+  title: 'Uniforme Interclasses Polvo Rosa',
+  category: 'esportivo',
+  image: portfolioEsportivoPolvoRosa,
+  description: 'Uniforme esportivo rosa com arte de polvo e detalhes florais.'
+}, {
+  id: 82,
+  title: 'Uniforme Interclasses Pantera Verde',
+  category: 'esportivo',
+  image: portfolioEsportivoPanteraVerde,
+  description: 'Uniforme esportivo branco e verde água com pantera negra e efeito splash.'
+}, {
+  id: 83,
+  title: 'Uniforme Interclasses Fênix Roxo',
+  category: 'esportivo',
+  image: portfolioEsportivoFenixRoxo,
+  description: 'Uniforme esportivo branco e roxo com fênix e gradiente moderno.'
 }];
 const categories = [{
   id: 'todos',
