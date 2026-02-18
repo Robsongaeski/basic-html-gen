@@ -410,18 +410,6 @@ const portfolioItems = [{
   image: portfolioTerceiraoAzul,
   description: 'Camisetas de formatura do terceiro ano com design moderno e personalizado com nome.'
 }, {
-  id: 64,
-  title: 'Camisetas Terceirão 2025 Ursinho',
-  category: 'terceirao',
-  image: portfolioTerceiraoUrsinho,
-  description: 'Camisetas de formatura com ilustração criativa de ursinho em pink.'
-}, {
-  id: 65,
-  title: 'Camisetas Terceirão 2025',
-  category: 'terceirao',
-  image: portfolioTerceiraoLaranja,
-  description: 'Camisetas de formatura com design em  retrô.'
-}, {
   id: 66,
   title: 'Uniformes Terceirão Rosa Gradiente',
   category: 'terceirao',
