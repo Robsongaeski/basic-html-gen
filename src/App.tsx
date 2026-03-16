@@ -27,6 +27,7 @@ const FAQ = lazy(() => import("./pages/FAQ"));
 const Contato = lazy(() => import("./pages/Contato"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const TermosUso = lazy(() => import("./pages/TermosUso"));
+const ExclusaoDados = lazy(() => import("./pages/ExclusaoDados"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
