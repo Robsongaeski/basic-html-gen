@@ -69,6 +69,7 @@ function AppContent() {
             <Route path="/contato" element={<Contato />} />
             <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
             <Route path="/termos-de-uso" element={<TermosUso />} />
+            <Route path="/exclusao-de-dados" element={<ExclusaoDados />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
