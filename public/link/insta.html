@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Redirecionando para o Instagram</title>
+
+  <!-- Pixel do Facebook -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '443778689097916');
+    fbq('track', 'PageView');
+    fbq('trackCustom', 'InstagramClick');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=443778689097916&ev=PageView&noscript=1"/>
+  </noscript>
+
+  <style>
+    :root { --bg:#0f0f10; --fg:#ffffff; --muted:#b3b3b3; }
+    html,body{height:100%; margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--fg);}
+    .wrap{min-height:100%; display:flex; align-items:center; justify-content:center; padding:24px;}
+    .card{width:100%; max-width:560px; background:#151517; border:1px solid #2a2a2c; border-radius:18px; padding:24px; box-shadow:0 10px 30px rgba(0,0,0,.35);}
+    h1{font-size:20px; margin:0 0 8px;}
+    p{margin:0 0 16px; color:var(--muted);}
+    .buttons{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px;}
+    .btn{appearance:none; border:1px solid #2a2a2c; background:#1b1b1e; color:#fff; padding:12px 14px; border-radius:12px; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; justify-content:center; transition:transform .08s ease, background .2s ease, border-color .2s ease;}
+    .btn:hover{background:#222226; border-color:#333;}
+    .btn:active{transform:translateY(1px);}
+    .spinner{width:18px;height:18px;border-radius:50%;border:2px solid #3a3a40;border-top-color:#fff; display:inline-block; animation:spin 0.9s linear infinite; vertical-align:middle; margin-right:8px;}
+    @keyframes spin { to{ transform:rotate(360deg);} }
+  </style>
+
+  <script>
+    var instaUrl = 'https://www.instagram.com/gathaconfeccao/';
+    setTimeout(function(){ window.location.href = instaUrl; }, 1500);
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1><span class="spinner"></span> Abrindo o Instagram…</h1>
+      <p>Se nada acontecer em alguns segundos, clique abaixo:</p>
+
+      <div class="buttons">
+        <a class="btn" href="https://www.instagram.com/gathaconfeccao/">
+          Abrir @gathaconfeccao no Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
