@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { WHATSAPP_PHONE } from '@/lib/whatsapp';
 
 // Base company info
 const companyInfo = {
@@ -30,7 +31,7 @@ const companyInfo = {
   ],
   sameAs: [
     'https://instagram.com/gathaconfeccao',
-    'https://wa.me/554626041806',
+    `https://wa.me/${WHATSAPP_PHONE}`,
   ],
 };
 

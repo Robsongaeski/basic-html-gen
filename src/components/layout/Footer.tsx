@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MessageCircle, Instagram, MapPin, Clock, Phone } from 'lucide-react';
+import { getWhatsAppLink, WHATSAPP_MESSAGES } from '@/lib/whatsapp';
 const footerLinks = {
   servicos: [{
     name: 'Camisetas Personalizadas',
@@ -52,7 +53,7 @@ export default function Footer() {
               Produção própria em Pato Branco - PR.
             </p>
             <div className="flex items-center space-x-4">
-              <a href="https://wa.me/554626041806" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-accent hover:text-accent-hover transition-colors">
+              <a href={getWhatsAppLink(WHATSAPP_MESSAGES.GENERIC)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-accent hover:text-accent-hover transition-colors">
                 <MessageCircle size={18} />
                 <span className="text-sm font-medium">WhatsApp</span>
               </a>

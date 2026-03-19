@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import gathaLogo from '@/assets/gatha-logo.png';
+import { getWhatsAppLink, WHATSAPP_MESSAGES } from '@/lib/whatsapp';
 
 const navigation = [
   { name: 'Início', href: '/' },
@@ -56,7 +57,7 @@ export default function Header() {
         <div className="hidden md:block">
           <Button asChild className="cta-whatsapp">
             <a
-              href="https://wa.me/554626041806"
+              href={getWhatsAppLink(WHATSAPP_MESSAGES.GENERIC)}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2"
@@ -100,7 +101,7 @@ export default function Header() {
             <div className="pt-4">
               <Button asChild className="cta-whatsapp w-full">
                 <a
-                  href="https://wa.me/554626041806"
+                  href={getWhatsAppLink(WHATSAPP_MESSAGES.GENERIC)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2"

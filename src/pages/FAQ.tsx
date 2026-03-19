@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { handleWhatsAppClick } from '@/lib/fbPixel';
 import SEOHead from '@/components/seo/SEOHead';
 import { FAQSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
+import { getWhatsAppLink, WHATSAPP_MESSAGES } from '@/lib/whatsapp';
 
 const faqData = [{
   category: 'Geral',
@@ -156,7 +157,7 @@ export default function FAQ() {
             
             <Button asChild className="cta-whatsapp">
               <a 
-                href="https://wa.me/554626041806" 
+                href={getWhatsAppLink(WHATSAPP_MESSAGES.GENERIC)} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex items-center gap-3 mx-auto w-fit"

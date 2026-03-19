@@ -4,6 +4,7 @@ import { handleWhatsAppClick } from '@/lib/fbPixel';
 import GoogleMap from '@/components/ui/google-map';
 import SEOHead from '@/components/seo/SEOHead';
 import { LocalBusinessSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
+import { getWhatsAppLink, WHATSAPP_MESSAGES } from '@/lib/whatsapp';
 
 export default function Contato() {
   return (
@@ -46,7 +47,7 @@ export default function Contato() {
                 <p className="text-muted-foreground mb-6 leading-relaxed">Chame nossa equipe pelo WhatsApp ou venha nos visitar.</p>
                 
                 <Button asChild className="cta-whatsapp text-lg px-8 py-4">
-                  <a href="https://wa.me/554626041806" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mx-auto w-fit" onClick={() => handleWhatsAppClick('Hero Contato')}>
+                  <a href={getWhatsAppLink(WHATSAPP_MESSAGES.CONTACT)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mx-auto w-fit" onClick={() => handleWhatsAppClick('Hero Contato')}>
                     <MessageSquare size={20} />
                     Iniciar Conversa
                   </a>
@@ -128,7 +129,7 @@ export default function Contato() {
                   </p>
                   
                   <Button asChild variant="outline">
-                    <a href="https://wa.me/554626041806" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 mx-auto w-fit" onClick={() => handleWhatsAppClick('Mapa - Como Chegar')}>
+                    <a href={getWhatsAppLink(WHATSAPP_MESSAGES.GENERIC)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 mx-auto w-fit" onClick={() => handleWhatsAppClick('Mapa - Como Chegar')}>
                       <MessageSquare size={16} />
                       Como Chegar
                     </a>
@@ -151,7 +152,7 @@ export default function Contato() {
             </p>
             
             <Button asChild className="cta-whatsapp text-lg px-8 py-4">
-              <a href="https://wa.me/554626041806" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mx-auto w-fit" onClick={() => handleWhatsAppClick('CTA Final Contato')}>
+              <a href={getWhatsAppLink(WHATSAPP_MESSAGES.QUOTE)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mx-auto w-fit" onClick={() => handleWhatsAppClick('CTA Final Contato')}>
                 <MessageSquare size={20} />
                 Começar Agora
               </a>

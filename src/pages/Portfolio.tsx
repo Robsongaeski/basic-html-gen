@@ -6,6 +6,7 @@ import { handleWhatsAppClick } from '@/lib/fbPixel';
 import TestimonialCard from '@/components/sections/TestimonialCard';
 import SEOHead from '@/components/seo/SEOHead';
 import { BreadcrumbSchema } from '@/components/seo/StructuredData';
+import { getWhatsAppLink, WHATSAPP_MESSAGES } from '@/lib/whatsapp';
 import portfolioTimeAguia from '@/assets/portfolio-time-aguia.jpg';
 import portfolioFestival from '@/assets/portfolio-festival-musica.jpg';
 import portfolioTech from '@/assets/portfolio-empresa-tech.jpg';
@@ -756,7 +757,7 @@ export default function Portfolio() {
                         {item.description}
                       </p>
                       <a
-                        href={`https://wa.me/554626041806?text=${encodeURIComponent(`Olá, tenho interesse em fazer algo assim: ${item.title}`)}`}
+                        href={getWhatsAppLink(`Olá! Estou no site e tenho interesse em fazer algo assim: ${item.title}`)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-sm font-medium text-green-600 hover:text-green-700 transition-colors pt-1"
@@ -789,7 +790,7 @@ export default function Portfolio() {
                       <div className="pt-4">
                         <Button asChild className="cta-whatsapp w-full">
                           <a 
-                            href={`https://wa.me/554626041806?text=${encodeURIComponent(`Olá, tenho interesse em fazer algo assim: ${item.title}`)}`}
+                            href={getWhatsAppLink(`Olá! Estou no site e tenho interesse em fazer algo assim: ${item.title}`)}
                             target="_blank" 
                             rel="noopener noreferrer" 
                             className="flex items-center justify-center gap-2"
@@ -841,7 +842,7 @@ export default function Portfolio() {
           
           <Button asChild className="cta-whatsapp">
             <a 
-              href="https://wa.me/554626041806" 
+              href={getWhatsAppLink(WHATSAPP_MESSAGES.QUOTE)} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="flex items-center gap-3 mx-auto w-fit"

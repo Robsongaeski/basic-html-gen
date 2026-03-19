@@ -1,5 +1,6 @@
 import SEOHead from '@/components/seo/SEOHead';
 import { Shield, Lock, Eye, Users, Database, Mail, Phone, MessageCircle } from 'lucide-react';
+import { getWhatsAppLink, WHATSAPP_MESSAGES } from '@/lib/whatsapp';
 
 const CONTACT_EMAIL = 'privacidade@gatha.com.br';
 const CONTACT_WHATSAPP = '(46) 2604-1806';
@@ -246,7 +247,7 @@ export default function PoliticaPrivacidade() {
                   <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                   <div>
                     <p className="text-sm text-muted-foreground">WhatsApp</p>
-                    <a href="https://wa.me/554626041806" className="text-foreground font-medium hover:text-primary transition-colors">
+                    <a href={getWhatsAppLink(WHATSAPP_MESSAGES.GENERIC)} className="text-foreground font-medium hover:text-primary transition-colors">
                       {CONTACT_WHATSAPP}
                     </a>
                   </div>

@@ -9,6 +9,7 @@ import { getRandomTestimonials } from '@/lib/testimonialsData';
 import { useMemo } from 'react';
 import SEOHead from '@/components/seo/SEOHead';
 import { LocalBusinessSchema, OrganizationSchema, WebSiteSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
+import { getWhatsAppLink, WHATSAPP_MESSAGES } from '@/lib/whatsapp';
 import heroImage from '@/assets/hero-confeccao.jpg';
 import camisetasImage from '@/assets/camisetas-personalizadas.jpg';
 import esportivosImage from '@/assets/uniformes-esportivos.jpg';
@@ -150,7 +151,7 @@ export default function Home() {
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild className="cta-whatsapp text-lg px-8 py-4">
-                  <a href="https://wa.me/554626041806" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3" onClick={() => handleWhatsAppClick('Hero Home')}>
+                  <a href={getWhatsAppLink(WHATSAPP_MESSAGES.QUOTE)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3" onClick={() => handleWhatsAppClick('Hero Home')}>
                     <MessageSquare size={20} />
                     Falar no WhatsApp
                   </a>
@@ -263,7 +264,7 @@ export default function Home() {
             </p>
             
             <Button asChild className="cta-whatsapp text-lg px-8 py-4">
-              <a href="https://wa.me/554626041806" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mx-auto w-fit" onClick={() => handleWhatsAppClick('CTA Final Home')}>
+              <a href={getWhatsAppLink(WHATSAPP_MESSAGES.QUOTE)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mx-auto w-fit" onClick={() => handleWhatsAppClick('CTA Final Home')}>
                 <MessageSquare size={20} />
                 Solicitar Orçamento
                 <ArrowRight size={20} />

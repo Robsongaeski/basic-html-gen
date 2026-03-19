@@ -13,6 +13,7 @@ import empresariaisImage from '@/assets/uniformes-empresariais.jpg';
 import eventosImage from '@/assets/camisetas-eventos.jpg';
 import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
 import { useMemo } from 'react';
+import { getWhatsAppLink, WHATSAPP_MESSAGES } from '@/lib/whatsapp';
 
 const services = [{
   title: 'Camisetas Personalizadas',
@@ -228,7 +229,7 @@ export default function Servicos() {
                         <div className="pt-4">
                           <Button asChild className="cta-whatsapp w-full">
                             <a 
-                              href="https://wa.me/554626041806" 
+                              href={getWhatsAppLink(`Olá! Estou no site e tenho interesse em algo assim: ${item.title}`)} 
                               target="_blank" 
                               rel="noopener noreferrer" 
                               className="flex items-center justify-center gap-2"
@@ -290,7 +291,7 @@ export default function Servicos() {
             
             <Button asChild className="cta-whatsapp">
               <a 
-                href="https://wa.me/554626041806" 
+                href={getWhatsAppLink(WHATSAPP_MESSAGES.GENERIC)} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="inline-flex items-center gap-3"

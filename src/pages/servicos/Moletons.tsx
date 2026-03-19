@@ -7,6 +7,7 @@ import { handleWhatsAppClick } from '@/lib/fbPixel';
 import { getRandomPortfolioByCategory } from '@/lib/portfolioData';
 import SEOHead from '@/components/seo/SEOHead';
 import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
+import { getWhatsAppLink, WHATSAPP_MESSAGES } from '@/lib/whatsapp';
 import camisetasImage from '@/assets/camisetas-personalizadas.jpg';
 import briefingImage from '@/assets/process-briefing.jpg';
 import designImage from '@/assets/process-design.jpg';
@@ -145,7 +146,7 @@ export default function Moletons() {
             
             <Button asChild className="cta-whatsapp text-lg px-8 py-4">
               <a 
-                href="https://wa.me/554626041806" 
+                href={getWhatsAppLink(WHATSAPP_MESSAGES.SERVICE('Moletons'))} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex items-center gap-3"
@@ -218,7 +219,7 @@ export default function Moletons() {
                 </p>
                 <Button asChild className="cta-whatsapp w-full">
                   <a 
-                    href={`https://wa.me/554626041806?text=Olá! Gostaria de solicitar um orçamento para ${example.title}`}
+                    href={getWhatsAppLink(`Olá! Estou no site e gostaria de solicitar um orçamento para ${example.title}`)}
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2"
@@ -299,7 +300,7 @@ export default function Moletons() {
           
           <Button asChild className="cta-whatsapp text-lg px-8 py-4">
             <a 
-              href="https://wa.me/554626041806" 
+              href={getWhatsAppLink(WHATSAPP_MESSAGES.SERVICE('Moletons'))} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="flex items-center gap-3 mx-auto w-fit"

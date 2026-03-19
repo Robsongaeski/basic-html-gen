@@ -1,3 +1,5 @@
+import { getWhatsAppLink, WHATSAPP_MESSAGES } from '@/lib/whatsapp';
+
 export default function TermosUso() {
   return <div className="min-h-screen">
       {/* Hero Section */}
@@ -47,7 +49,7 @@ export default function TermosUso() {
               <h2 className="text-2xl font-bold text-foreground mb-4">7. Contato</h2>
               <p className="text-muted-foreground">
                 Para esclarecimentos sobre estes termos, entre em contato via WhatsApp: 
-                <a href="https://wa.me/554626041806" className="text-primary hover:underline ml-1">
+                <a href={getWhatsAppLink(WHATSAPP_MESSAGES.GENERIC)} className="text-primary hover:underline ml-1">
                   (46) 2604-1806
                 </a>
               </p>
