@@ -22,6 +22,7 @@ const CamisetasEventos = lazy(() => import("./pages/servicos/CamisetasEventos"))
 const JaquetasCortatVento = lazy(() => import("./pages/servicos/JaquetasCortatVento"));
 const Moletons = lazy(() => import("./pages/servicos/Moletons"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
+const PortfolioProduto = lazy(() => import("./pages/PortfolioProduto"));
 const QuemSomos = lazy(() => import("./pages/QuemSomos"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const Contato = lazy(() => import("./pages/Contato"));
@@ -64,6 +65,7 @@ function AppContent() {
             <Route path="/servicos/jaquetas-corta-vento" element={<JaquetasCortatVento />} />
             <Route path="/servicos/moletons" element={<Moletons />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/portfolio/:slug" element={<PortfolioProduto />} />
             <Route path="/quem-somos" element={<QuemSomos />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contato" element={<Contato />} />

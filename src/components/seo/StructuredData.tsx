@@ -192,6 +192,65 @@ interface ServiceSchemaProps {
   category?: string;
 }
 
+interface ProductSchemaProps {
+  name: string;
+  description: string;
+  image?: string;
+  url: string;
+  category?: string;
+  keywords?: string[];
+}
+
+export function ProductSchema({
+  name,
+  description,
+  image,
+  url,
+  category,
+  keywords,
+}: ProductSchemaProps) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name,
+    description,
+    image: image ? [image.startsWith('http') ? image : `https://gatha.com.br${image}`] : undefined,
+    category,
+    keywords: keywords?.join(', '),
+    brand: {
+      '@type': 'Brand',
+      name: companyInfo.name,
+    },
+    manufacturer: {
+      '@type': 'Organization',
+      name: companyInfo.name,
+      url: companyInfo.url,
+    },
+    offers: {
+      '@type': 'Offer',
+      url: url.startsWith('http') ? url : `${companyInfo.url}${url}`,
+      priceCurrency: 'BRL',
+      availability: 'https://schema.org/InStock',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        priceCurrency: 'BRL',
+        price: '0',
+        valueAddedTaxIncluded: false,
+      },
+      seller: {
+        '@type': 'Organization',
+        name: companyInfo.name,
+      },
+    },
+  };
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  );
+}
+
 export function ServiceSchema({ name, description, image, category }: ServiceSchemaProps) {
   const schema = {
     '@context': 'https://schema.org',

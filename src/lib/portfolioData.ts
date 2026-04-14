@@ -75,6 +75,20 @@ export interface PortfolioItem {
   description: string;
 }
 
+export interface PortfolioProduct extends PortfolioItem {
+  slug: string;
+  categoryLabel: string;
+  seoTitle: string;
+  seoDescription: string;
+  headline: string;
+  longDescription: string;
+  highlights: string[];
+  benefits: string[];
+  idealFor: string[];
+  ctaMessage: string;
+  keywords: string[];
+}
+
 export const portfolioItems: PortfolioItem[] = [{
   id: 9,
   title: 'Camisetas Grupo Religioso',
@@ -445,4 +459,114 @@ export function getRandomPortfolioByCategory(
   
   // Retorna os primeiros N itens
   return shuffled.slice(0, Math.min(count, shuffled.length));
+}
+
+const categoryLabels: Record<PortfolioCategory, string> = {
+  esportivo: 'Esportivo',
+  eventos: 'Eventos',
+  corporativo: 'Corporativo',
+  personalizado: 'Personalizado',
+  terceirao: 'Terceirão',
+};
+
+const categoryContent: Record<
+  PortfolioCategory,
+  {
+    headline: string;
+    longDescription: string;
+    highlights: string[];
+    benefits: string[];
+    idealFor: string[];
+    keywords: string[];
+  }
+> = {
+  esportivo: {
+    headline: 'Um uniforme criado para destacar a equipe e transmitir presença dentro e fora de quadra.',
+    longDescription:
+      'Esse modelo da Gatha foi desenvolvido para unir impacto visual, leitura fácil da identidade da equipe e acabamento pensado para uso frequente. A proposta é entregar um uniforme que valoriza o time, melhora a apresentação e transmite mais profissionalismo desde o primeiro olhar.',
+    highlights: ['Arte personalizada na frente e nas costas', 'Acabamento pensado para uso esportivo', 'Opção de numeração, nomes e patrocinadores'],
+    benefits: ['Mais presença visual para o time', 'Layout adaptável para diferentes categorias', 'Produção sob demanda com orientação da equipe Gatha'],
+    idealFor: ['Times amadores e profissionais', 'Interclasses, torneios e campeonatos', 'Projetos esportivos escolares e academias'],
+    keywords: ['uniforme esportivo personalizado', 'camisa de time personalizada', 'uniforme para futsal', 'uniforme para interclasses'],
+  },
+  corporativo: {
+    headline: 'Um uniforme corporativo que fortalece a marca e transmite profissionalismo no atendimento.',
+    longDescription:
+      'Esse produto foi pensado para empresas que querem apresentar a equipe com padrão visual forte, conforto no dia a dia e acabamento consistente. A Gatha personaliza a peça para o contexto do negócio, valorizando a marca e ajudando o cliente final a perceber mais organização e credibilidade.',
+    highlights: ['Identidade visual alinhada com a empresa', 'Modelagem e personalização sob medida', 'Visual limpo, profissional e marcante'],
+    benefits: ['Fortalece a imagem da equipe', 'Melhora a apresentação no atendimento', 'Permite adaptar logo, cores e aplicações'],
+    idealFor: ['Comércio e varejo', 'Indústria, serviços e logística', 'Equipes externas, eventos e atendimento ao público'],
+    keywords: ['uniforme empresarial personalizado', 'camiseta corporativa', 'uniforme para empresa', 'camisa polo personalizada'],
+  },
+  eventos: {
+    headline: 'Um modelo pensado para destacar o grupo, gerar unidade e valorizar o evento.',
+    longDescription:
+      'As peças para eventos da Gatha são pensadas para comunicar tema, patrocinadores, mensagem ou identidade visual com clareza. O resultado é uma camiseta que ajuda a organizar equipes, valoriza a experiência do público e ainda rende ótimas fotos para divulgação.',
+    highlights: ['Estampa com leitura forte para grupos e equipes', 'Personalização pensada para datas e campanhas', 'Produção alinhada à identidade do evento'],
+    benefits: ['Ajuda na organização do evento', 'Cria lembrança visual da ação', 'Pode ser adaptado para lotes e públicos diferentes'],
+    idealFor: ['Campanhas promocionais', 'Voluntariados, romarias e grupos', 'Feiras, festivais, corridas e eventos corporativos'],
+    keywords: ['camiseta para evento', 'camiseta promocional personalizada', 'camiseta para campanha', 'uniforme para staff'],
+  },
+  personalizado: {
+    headline: 'Uma peça personalizada criada para chamar atenção e aumentar o valor percebido do produto.',
+    longDescription:
+      'Nos modelos personalizados, a Gatha trabalha a arte e o acabamento para transformar a ideia do cliente em uma peça visualmente forte. Isso permite criar camisetas, moletons e jaquetas com cara de coleção, presente, ação promocional ou uso próprio com muito mais personalidade.',
+    highlights: ['Visual marcante com personalização completa', 'Projeto adaptável para diferentes públicos', 'Acabamento pensado para elevar o valor percebido'],
+    benefits: ['Ajuda o produto a se destacar', 'Cria identificação emocional com a peça', 'Fácil de adaptar para lançamentos e grupos específicos'],
+    idealFor: ['Marcas próprias e coleções', 'Grupos de amigos e fandoms', 'Presentes, lançamentos e peças comemorativas'],
+    keywords: ['camiseta personalizada', 'moletom personalizado', 'jaqueta personalizada', 'roupa personalizada sob encomenda'],
+  },
+  terceirao: {
+    headline: 'Um modelo pensado para a turma, para a memória afetiva e para a identidade visual da formatura.',
+    longDescription:
+      'As peças de terceirão da Gatha combinam arte criativa, personalização com nomes e uma proposta visual que ajuda a turma a se reconhecer. O foco é entregar algo que funcione tanto no uso do dia a dia quanto como lembrança da fase escolar, com apelo forte para fotos e divulgação.',
+    highlights: ['Arte exclusiva para a turma', 'Possibilidade de nomes e detalhes personalizados', 'Visual pensado para gerar pertencimento e lembrança'],
+    benefits: ['Valoriza a identidade da turma', 'Ajuda a aumentar o desejo de compra', 'Pode virar kit com camiseta, moletom e extras'],
+    idealFor: ['Terceirão e nono ano', 'Turmas com tema próprio', 'Campanhas internas de venda escolar'],
+    keywords: ['camiseta terceirao', 'moletom terceirao', 'uniforme de formandos', 'camiseta personalizada escolar'],
+  },
+};
+
+function slugify(value: string) {
+  return value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function buildProduct(item: PortfolioItem): PortfolioProduct {
+  const categoryCopy = categoryContent[item.category];
+  const baseSlug = slugify(item.title);
+  const slug = `${baseSlug}-${item.id}`;
+
+  return {
+    ...item,
+    slug,
+    categoryLabel: categoryLabels[item.category],
+    seoTitle: `${item.title} personalizado`,
+    seoDescription: `${item.title} na Gatha Confecções. ${item.description} Solicite um orçamento e fale com a equipe pelo WhatsApp.`,
+    headline: categoryCopy.headline,
+    longDescription: `${item.description} ${categoryCopy.longDescription}`,
+    highlights: categoryCopy.highlights,
+    benefits: categoryCopy.benefits,
+    idealFor: categoryCopy.idealFor,
+    ctaMessage: `Olá! Vi o modelo ${item.title} no site da Gatha e quero um orçamento para fazer algo nesse estilo.`,
+    keywords: [...categoryCopy.keywords, item.title],
+  };
+}
+
+export const portfolioProducts: PortfolioProduct[] = portfolioItems.map(buildProduct);
+
+export function getPortfolioProductBySlug(slug: string) {
+  return portfolioProducts.find((item) => item.slug === slug);
+}
+
+export function getRelatedPortfolioProducts(product: PortfolioProduct, count: number = 3) {
+  const sameCategory = portfolioProducts.filter(
+    (item) => item.slug !== product.slug && item.category === product.category,
+  );
+
+  return sameCategory.slice(0, Math.min(count, sameCategory.length));
 }

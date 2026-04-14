@@ -1,858 +1,214 @@
-import { useState } from 'react';
-import { Eye, MessageCircle } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { handleWhatsAppClick } from '@/lib/fbPixel';
 import TestimonialCard from '@/components/sections/TestimonialCard';
 import SEOHead from '@/components/seo/SEOHead';
 import { BreadcrumbSchema } from '@/components/seo/StructuredData';
+import { handleWhatsAppClick } from '@/lib/fbPixel';
+import { portfolioProducts } from '@/lib/portfolioData';
 import { getWhatsAppLink, WHATSAPP_MESSAGES } from '@/lib/whatsapp';
-import portfolioTimeAguia from '@/assets/portfolio-time-aguia.jpg';
-import portfolioFestival from '@/assets/portfolio-festival-musica.jpg';
-import portfolioTech from '@/assets/portfolio-empresa-tech.jpg';
-import portfolioLoja from '@/assets/portfolio-camisetas-loja.jpg';
-import portfolioBasquete from '@/assets/portfolio-basquete-feminino.jpg';
-import portfolioFarmacia from '@/assets/portfolio-farmacia.jpg';
-import portfolioCamisetaReligiosa from '@/assets/portfolio-camiseta-religiosa.jpg';
-import portfolioPolimed from '@/assets/portfolio-polimed-30anos.jpg';
-import portfolioPoloAsiaClub from '@/assets/portfolio-polo-asia-club.jpg';
-import portfolioJaquetaMatech from '@/assets/portfolio-jaqueta-matech.jpg';
-import portfolioJaquetaProCampo from '@/assets/portfolio-jaqueta-procampo.jpg';
-import portfolioBrizola from '@/assets/portfolio-brizola-pinturas.jpg';
-import portfolioFlyDonuts from '@/assets/portfolio-fly-donuts.jpg';
-import portfolioPilates from '@/assets/portfolio-pilates-personalizado.jpg';
-import portfolioUsiplast from '@/assets/portfolio-usiplast-23anos.jpg';
-import portfolioPantanal from '@/assets/portfolio-pantanal-summit.jpg';
-import portfolioGranjaChalana from '@/assets/portfolio-granja-chalana.jpg';
-import portfolioSeveroTransportes from '@/assets/portfolio-severo-transportes.jpg';
-import portfolioStaffDJ from '@/assets/portfolio-staff-dj-casagrande.jpg';
-import portfolioCatequista from '@/assets/portfolio-catequista.jpg';
-import portfolioOutubroRosa from '@/assets/portfolio-outubro-rosa.jpg';
-import portfolioFDTransportes from '@/assets/portfolio-fd-transportes.jpg';
-import portfolioPoloCarBox from '@/assets/portfolio-polo-carbox.jpg';
-import portfolioAthena from '@/assets/portfolio-athena.jpg';
-import portfolioVoluntarios from '@/assets/portfolio-voluntarios.jpg';
-import portfolioTransMedeiros from '@/assets/portfolio-trans-medeiros.jpg';
-import portfolioFestivalChurrasco from '@/assets/portfolio-festival-churrasco.jpg';
-import portfolioPowerFitness from '@/assets/portfolio-power-fitness.jpg';
-import portfolioLeonarchik from '@/assets/portfolio-leonarchik.jpg';
-import portfolioTimeCeoje from '@/assets/portfolio-time-ceoje.jpg';
-import portfolioMaterDei from '@/assets/portfolio-mater-dei-pesca.jpg';
-import portfolioNaiaraFutebol from '@/assets/portfolio-naiara-futebol.jpg';
-import portfolioCyborgs from '@/assets/portfolio-cyborgs-robotica.jpg';
-import portfolioProfessorDanca from '@/assets/portfolio-professor-danca.jpg';
-import portfolioAlcides from '@/assets/portfolio-alcides-religioso.jpg';
-import portfolioArsenalMurilo from '@/assets/portfolio-arsenal-murilo.jpg';
-import portfolioPBTerraplanagem from '@/assets/portfolio-pb-terraplanagem.jpg';
-import portfolioFutsalPlanalto from '@/assets/portfolio-futsal-planalto.jpg';
-import portfolioReallClean from '@/assets/portfolio-reall-clean.jpg';
-import portfolioCorridaRun from '@/assets/portfolio-corrida-run.jpg';
-import portfolioSKWEscolar from '@/assets/portfolio-skw-escolar.jpg';
-import portfolioLaabasFutsal from '@/assets/portfolio-laabas-futsal.jpg';
-import portfolioBletoSinuca from '@/assets/portfolio-bleto-sinuca.jpg';
-import portfolioGSTVFutsal from '@/assets/portfolio-gstv-futsal.jpg';
-import portfolioChalanaMangaLonga from '@/assets/portfolio-chalana-manga-longa.jpg';
-import portfolioGruntecAgro from '@/assets/portfolio-gruntec-agro.jpg';
-import portfolioMoletomHyunjin from '@/assets/portfolio-moletom-hyunjin.jpg';
-import portfolioEsteticaAnimal from '@/assets/portfolio-estetica-animal.jpg';
-import portfolioJaquetaCali from '@/assets/portfolio-jaqueta-cali.jpg';
-import portfolioJaquetaWavo from '@/assets/portfolio-jaqueta-wavo.jpg';
-import portfolioJaquetaUseplast from '@/assets/portfolio-jaqueta-useplast.jpg';
-import portfolioVillaDiGrano from '@/assets/portfolio-villa-di-grano.jpg';
-import portfolioShopeeXpress from '@/assets/portfolio-shopee-xpress.jpg';
-import portfolioCafeMais from '@/assets/portfolio-cafe-mais.jpg';
-import portfolioMoletomSeguranca from '@/assets/portfolio-moletom-seguranca.jpg';
-import portfolioMoletomGaleraMDF from '@/assets/portfolio-moletom-galera-mdf.jpg';
-import portfolioTimeMarlon from '@/assets/portfolio-time-marlon.jpg';
-import portfolioArbitragemPrevence from '@/assets/portfolio-arbitragem-prevence.jpg';
-import portfolioTimePastorello from '@/assets/portfolio-time-pastorello.jpg';
-import portfolioTimeNonoAno from '@/assets/portfolio-time-nono-ano.jpg';
-import portfolioTerceiraoAzul from '@/assets/portfolio-terceirao-azul.jpg';
-import portfolioTerceiraoUrsinho from '@/assets/portfolio-terceirao-ursinho.jpg';
-import portfolioTerceiraoLaranja from '@/assets/portfolio-terceirao-laranja.jpg';
-import portfolioTerceiraoRosa from '@/assets/portfolio-terceirao-rosa.jpg';
-import portfolioTimeFrizon from '@/assets/portfolio-time-frizon.jpg';
-import portfolioTimePlanalto from '@/assets/portfolio-time-planalto.jpg';
-import portfolioTerceiraoGraffiti from '@/assets/portfolio-terceirao-graffiti.jpg';
-import portfolioTerceiraoUrsinhoRosa from '@/assets/portfolio-terceirao-ursinho-rosa.jpg';
-import portfolioTerceiraoXadrez from '@/assets/portfolio-terceirao-xadrez.jpg';
-import portfolioTerceiraoNonoAno from '@/assets/portfolio-terceirao-nono-ano.jpg';
-import portfolioTerceiraoMoletom from '@/assets/portfolio-terceirao-moletom.jpg';
-import portfolioTerceiraoDragaoAzul from '@/assets/portfolio-terceirao-dragao-azul.jpg';
-import portfolioEsportivoDragaoDourado from '@/assets/portfolio-esportivo-dragao-dourado.jpg';
-import portfolioEsportivoDragaoDourado2 from '@/assets/portfolio-esportivo-dragao-dourado2.jpg';
-import portfolioEsportivoFenixBranco from '@/assets/portfolio-esportivo-fenix-branco.jpg';
-import portfolioEsportivoDragaoRoxo from '@/assets/portfolio-esportivo-dragao-roxo.jpg';
-import portfolioEsportivoMeninasSuper from '@/assets/portfolio-esportivo-meninas-super.jpg';
-import portfolioEsportivoPernalonga from '@/assets/portfolio-esportivo-pernalonga.jpg';
-import portfolioEsportivoPolvoRosa from '@/assets/portfolio-esportivo-polvo-rosa.jpg';
-import portfolioEsportivoPanteraVerde from '@/assets/portfolio-esportivo-pantera-verde.jpg';
-import portfolioEsportivoFenixRoxo from '@/assets/portfolio-esportivo-fenix-roxo.jpg';
-import portfolioCaldatoDiesel from '@/assets/portfolio-caldato-diesel.jpg';
-import portfolioBodyOzmap from '@/assets/portfolio-body-ozmap.jpg';
-import portfolioCalcaHazbier from '@/assets/portfolio-calca-hazbier.jpg';
-import portfolioBrunoSouzaDance from '@/assets/portfolio-bruno-souza-dance.jpg';
-import portfolioPoloSiontek from '@/assets/portfolio-polo-siontek.jpg';
-import portfolioDiaDasMaes from '@/assets/portfolio-dia-das-maes.jpg';
-import portfolioBertuolCarros from '@/assets/portfolio-bertuol-carros.jpg';
-import portfolioGcaGrupo from '@/assets/portfolio-gca-grupo.jpg';
-import portfolioLoteriasCaixa from '@/assets/portfolio-loterias-caixa.jpg';
-import portfolioBodyViasoft from '@/assets/portfolio-body-viasoft.jpg';
 
-// Portfolio items with real work examples
-const portfolioItems = [{
-  id: 9,
-  title: 'Camisetas Grupo Religioso',
-  category: 'eventos',
-  image: portfolioCamisetaReligiosa,
-  description: 'Camisetas personalizadas para grupo religioso com estampa sublimática de alta qualidade.'
-}, {
-  id: 10,
-  title: 'Camisetas Polimed 30 Anos',
-  category: 'corporativo',
-  image: portfolioPolimed,
-  description: 'Camisetas comemorativas para celebração de 30 anos da empresa Polimed.'
-}, {
-  id: 11,
-  title: 'Camisa Polo Asia Club',
-  category: 'corporativo',
-  image: portfolioPoloAsiaClub,
-  description: 'Uniformes polo elegantes para empresa com bordados personalizados.'
-}, {
-  id: 12,
-  title: 'Jaqueta Corta-Vento Matech',
-  category: 'corporativo',
-  image: portfolioJaquetaMatech,
-  description: 'Jaquetas corta-vento com sublimação total para empresa de tecnologia.'
-}, {
-  id: 13,
-  title: 'Jaqueta Pro Campo',
-  category: 'corporativo',
-  image: portfolioJaquetaProCampo,
-  description: 'Jaquetas corta-vento para empresa do agronegócio com design exclusivo.'
-}, {
-  id: 14,
-  title: 'Uniformes Brizola Pinturas',
-  category: 'corporativo',
-  image: portfolioBrizola,
-  description: 'Uniformes profissionais para empresa de pinturas com malha respirável.'
-}, {
-  id: 15,
-  title: 'Camisetas Fly Donuts & Pizza',
-  category: 'corporativo',
-  image: portfolioFlyDonuts,
-  description: 'Uniformes clean e modernos para restaurante com logo.'
-}, {
-  id: 16,
-  title: 'Camisetas Pilates Personalizadas',
-  category: 'personalizado',
-  image: portfolioPilates,
-  description: 'Camisetas personalizadas para estúdio de pilates com sublimação total.'
-}, {
-  id: 17,
-  title: 'Camisetas Usiplast 23 Anos',
-  category: 'corporativo',
-  image: portfolioUsiplast,
-  description: 'Camisetas comemorativas para celebração de 23 anos da empresa.'
-}, {
-  id: 18,
-  title: 'Camisetas Pantanal Summit 2025',
-  category: 'eventos',
-  image: portfolioPantanal,
-  description: 'Camisetas para evento corporativo com design exclusivo e tecnologia dry-fit.'
-}, {
-  id: 19,
-  title: 'Camisetas Granja Chalana',
-  category: 'corporativo',
-  image: portfolioGranjaChalana,
-  description: 'Uniformes para empresa do agronegócio com estampa sublimática em alta definição.'
-}, {
-  id: 20,
-  title: 'Camisetas Severo Transportes',
-  category: 'corporativo',
-  image: portfolioSeveroTransportes,
-  description: 'Uniformes para empresa de transportes com design criativo e sublimação total.'
-}, {
-  id: 21,
-  title: 'Camisetas Staff DJ Casagrande',
-  category: 'eventos',
-  image: portfolioStaffDJ,
-  description: 'Uniformes de equipe para eventos com design clean e profissional.'
-}, {
-  id: 22,
-  title: 'Camisetas Catequista',
-  category: 'eventos',
-  image: portfolioCatequista,
-  description: 'Camisetas para grupo religioso com estampas vibrantes e coloridas.'
-}, {
-  id: 23,
-  title: 'Camisetas Outubro Rosa',
-  category: 'eventos',
-  image: portfolioOutubroRosa,
-  description: 'Camisetas para campanha social com estampa delicada e significativa.'
-}, {
-  id: 24,
-  title: 'Camisetas FD Transportes',
-  category: 'corporativo',
-  image: portfolioFDTransportes,
-  description: 'Uniformes corporativos para empresa de transportes e turismo.'
-}, {
-  id: 25,
-  title: 'Polo Car Box',
-  category: 'corporativo',
-  image: portfolioPoloCarBox,
-  description: 'Uniformes polo elegantes para empresa automotiva com bordado premium.'
-}, {
-  id: 26,
-  title: 'Camisetas Athena',
-  category: 'personalizado',
-  image: portfolioAthena,
-  description: 'Camisetas personalizadas com design artístico e detalhes em dourado.'
-}, {
-  id: 27,
-  title: 'Camisetas Voluntários',
-  category: 'eventos',
-  image: portfolioVoluntarios,
-  description: 'Uniformes para grupo de voluntários com design inspirador e motivacional.'
-}, {
-  id: 28,
-  title: 'Camisetas Trans Medeiros',
-  category: 'corporativo',
-  image: portfolioTransMedeiros,
-  description: 'Uniformes para empresa de transportes com design arrojado e moderno.'
-}, {
-  id: 29,
-  title: 'Camisetas Festival do Churrasco El Toro',
-  category: 'eventos',
-  image: portfolioFestivalChurrasco,
-  description: 'Camisetas para festival gastronômico com design criativo e impactante.'
-}, {
-  id: 30,
-  title: 'Camisetas Power Fitness Academia',
-  category: 'esportivo',
-  image: portfolioPowerFitness,
-  description: 'Uniformes esportivos para academia com gradiente moderno e tecnologia dry-fit.'
-}, {
-  id: 31,
-  title: 'Uniformes Leonarchik Marcenaria',
-  category: 'corporativo',
-  image: portfolioLeonarchik,
-  description: 'Uniformes profissionais para marcenaria com camuflado personalizado.'
-}, {
-  id: 32,
-  title: 'Uniformes Time Interclasses',
-  category: 'esportivo',
-  image: portfolioTimeCeoje,
-  description: 'Uniformes de futebol com design único e sublimação artística.'
-}, {
-  id: 33,
-  title: 'Uniformes Interclasses Mater Dei',
-  category: 'esportivo',
-  image: portfolioMaterDei,
-  description: 'Camisetas para equipe, interclasse Mater Dei.'
-}, {
-  id: 34,
-  title: 'Uniformes Time',
-  category: 'esportivo',
-  image: portfolioNaiaraFutebol,
-  description: 'Uniformes esportivos clean e profissionais para time de futebol.'
-}, {
-  id: 35,
-  title: 'Uniformes Cyborgs Robótica',
-  category: 'eventos',
-  image: portfolioCyborgs,
-  description: 'Camisetas para equipe de robótica com design tecnológico e moderno.'
-}, {
-  id: 36,
-  title: 'Camisetas Professor de Dança',
-  category: 'personalizado',
-  image: portfolioProfessorDanca,
-  description: 'Uniformes personalizados para escola de dança com identidade visual única.'
-}, {
-  id: 37,
-  title: 'Camisetas Romaria',
-  category: 'eventos',
-  image: portfolioAlcides,
-  description: 'Camisetas para romaria religiosa com estampa sublimática de alta qualidade.'
-}, {
-  id: 38,
-  title: 'Uniformes Time',
-  category: 'esportivo',
-  image: portfolioArsenalMurilo,
-  description: 'Uniformes de futebol com listras clássicas e acabamento premium.'
-}, {
-  id: 39,
-  title: 'Camisa PB Terraplanagem',
-  category: 'corporativo',
-  image: portfolioPBTerraplanagem,
-  description: 'Uniformes manga longa para empresa de terraplanagem com design impactante.'
-}, {
-  id: 40,
-  title: 'Uniformes Futsal Planalto',
-  category: 'esportivo',
-  image: portfolioFutsalPlanalto,
-  description: 'Uniformes manga longa de futsal com múltiplos patrocínios.'
-}, {
-  id: 41,
-  title: 'Uniformes Reall Clean',
-  category: 'corporativo',
-  image: portfolioReallClean,
-  description: 'Camisas manga longa para empresa de limpeza com design clean e moderno.'
-}, {
-  id: 42,
-  title: 'Camisetas Corrida Run',
-  category: 'eventos',
-  image: portfolioCorridaRun,
-  description: 'Camisetas para corrida de rua cores Neon.'
-}, {
-  id: 43,
-  title: 'Camisetas Bocha',
-  category: 'esportivo',
-  image: portfolioSKWEscolar,
-  description: 'Uniforme Esportivo para time de Bocha.'
-}, {
-  id: 44,
-  title: 'Uniformes Esportivo Feminino',
-  category: 'esportivo',
-  image: portfolioLaabasFutsal,
-  description: 'Uniformes femininos de futsal com design em preto e rosa.'
-}, {
-  id: 45,
-  title: 'Camisetas Bar',
-  category: 'personalizado',
-  image: portfolioBletoSinuca,
-  description: 'Uniformes personalizados para equipe de sinuca com design temático.'
-}, {
-  id: 46,
-  title: 'Uniformes Futsal',
-  category: 'esportivo',
-  image: portfolioGSTVFutsal,
-  description: 'Uniformes de futsal com patrocínio.'
-}, {
-  id: 47,
-  title: 'Camisa Manga Longa Granja Chalana',
-  category: 'corporativo',
-  image: portfolioChalanaMangaLonga,
-  description: 'Uniforme manga longa para granja com estampa realista de alta qualidade.'
-}, {
-  id: 48,
-  title: 'Camisa Manga Longa Gruntec Agro',
-  category: 'corporativo',
-  image: portfolioGruntecAgro,
-  description: 'Uniformes manga longa para empresa do agronegócio com design verde vibrante.'
-}, {
-  id: 49,
-  title: 'Moletom Personalizado Hyunjin',
-  category: 'personalizado',
-  image: portfolioMoletomHyunjin,
-  description: 'Moletom com estampa personalizada de fã com assinatura autografada.'
-}, {
-  id: 50,
-  title: 'Uniformes Latidos & Miados Pet',
-  category: 'corporativo',
-  image: portfolioEsteticaAnimal,
-  description: 'Uniformes para estética animal com design fofo e gradiente colorido.'
-}, {
-  id: 51,
-  title: 'Jaqueta Corta-Vento Chillpass',
-  category: 'personalizado',
-  image: portfolioJaquetaCali,
-  description: 'Jaqueta corta-vento personalizada em azul vibrante com capuz.'
-}, {
-  id: 52,
-  title: 'Jaqueta Corta-Vento Wave',
-  category: 'corporativo',
-  image: portfolioJaquetaWavo,
-  description: 'Jaquetas corta-vento corporativas com detalhes em verde neon.'
-}, {
-  id: 53,
-  title: 'Jaqueta Corta-Vento Useplast',
-  category: 'corporativo',
-  image: portfolioJaquetaUseplast,
-  description: 'Jaquetas esportivas com sublimação total em preto e verde.'
-}, {
-  id: 54,
-  title: 'Camisetas Villa Di Grano',
-  category: 'corporativo',
-  image: portfolioVillaDiGrano,
-  description: 'Uniformes clean para loja de produtos naturais com logos estampadas.'
-}, {
-  id: 55,
-  title: 'Uniformes Shopee Xpress',
-  category: 'corporativo',
-  image: portfolioShopeeXpress,
-  description: 'Uniformes para entregadores da Shopee com personalização individual.'
-}, {
-  id: 56,
-  title: 'Uniformes Café Mais Cafeteria',
-  category: 'corporativo',
-  image: portfolioCafeMais,
-  description: 'Camisetas para cafeteria com logo vintage e elegante.'
-}, {
-  id: 57,
-  title: 'Moletom Segurança Privada',
-  category: 'corporativo',
-  image: portfolioMoletomSeguranca,
-  description: 'Moletons profissionais para equipe de segurança estampado.'
-}, {
-  id: 58,
-  title: 'Moletom Galera MDF Rota 163',
-  category: 'personalizado',
-  image: portfolioMoletomGaleraMDF,
-  description: 'Moletom personalizado para grupo com estampa criativa.'
-}, {
-  id: 59,
-  title: 'Uniformes Esportivo',
-  category: 'esportivo',
-  image: portfolioTimeMarlon,
-  description: 'Uniformes de futebol com design moderno em preto e amarelo com múltiplos patrocínios.'
-}, {
-  id: 60,
-  title: 'Uniformes Arbitragem',
-  category: 'esportivo',
-  image: portfolioArbitragemPrevence,
-  description: 'Uniformes para árbitros em vermelho vibrante com patrocínio destaque.'
-}, {
-  id: 61,
-  title: 'Uniformes Time',
-  category: 'esportivo',
-  image: portfolioTimePastorello,
-  description: 'Uniformes esportivo com estampa de dragão e múltiplos patrocinadores.'
-}, {
-  id: 62,
-  title: 'Uniformes Time 9º Ano',
-  category: 'esportivo',
-  image: portfolioTimeNonoAno,
-  description: 'Uniformes escolares esportivos com design onça e gradiente vermelho.'
-}, {
-  id: 63,
-  title: 'Camisetas Terceirão 2025 Azul',
-  category: 'terceirao',
-  image: portfolioTerceiraoAzul,
-  description: 'Camisetas de formatura do terceiro ano com design moderno e personalizado com nome.'
-}, {
-  id: 66,
-  title: 'Uniformes Terceirão Rosa Gradiente',
-  category: 'terceirao',
-  image: portfolioTerceiraoRosa,
-  description: 'Camiseta Terceirão personalizada.'
-}, {
-  id: 67,
-  title: 'Uniformes Esportivo',
-  category: 'esportivo',
-  image: portfolioTimeFrizon,
-  description: 'Uniformes completos de futebol em azul royal com múltiplos patrocínios.'
-}, {
-  id: 68,
-  title: 'Uniformes Time Planalto',
-  category: 'esportivo',
-  image: portfolioTimePlanalto,
-  description: 'Uniformes de futebol em azul claro com listras e kit completo.'
-}, {
-  id: 69,
-  title: 'Camiseta Terceirão Graffiti 2025',
-  category: 'terceirao',
-  image: portfolioTerceiraoGraffiti,
-  description: 'Camiseta terceirão com arte graffiti exclusiva e personalização com nome.'
-}, {
-  id: 70,
-  title: 'Camiseta Terceirão Ursinho 2025',
-  category: 'terceirao',
-  image: portfolioTerceiraoUrsinhoRosa,
-  description: 'Camiseta terceirão com ilustração criativa de ursinho em estilo urbano.'
-}, {
-  id: 71,
-  title: 'Camiseta Terceirão Xadrez 2025',
-  category: 'terceirao',
-  image: portfolioTerceiraoXadrez,
-  description: 'Camiseta terceirão com design xadrez retrô e personalização com nome.'
-}, {
-  id: 72,
-  title: 'Camiseta Formandos Nono Ano 2025',
-  category: 'terceirao',
-  image: portfolioTerceiraoNonoAno,
-  description: 'Camiseta de formandos do 9º ano com arte temática e personalização.'
-}, {
-  id: 73,
-  title: 'Moletom Terceirão 2025',
-  category: 'terceirao',
-  image: portfolioTerceiraoMoletom,
-  description: 'Moletom terceirão com arte graffiti, capuz e personalização com nome.'
-}, {
-  id: 74,
-  title: 'Camiseta Terceirão Dragão Azul 2025',
-  category: 'terceirao',
-  image: portfolioTerceiraoDragaoAzul,
-  description: 'Camiseta terceirão com arte de dragão oriental em azul marinho e personalização.'
-}, {
-  id: 75,
-  title: 'Uniforme Interclasses Dragão Dourado',
-  category: 'esportivo',
-  image: portfolioEsportivoDragaoDourado,
-  description: 'Uniforme esportivo com dragão dourado em preto e detalhes gold.'
-}, {
-  id: 76,
-  title: 'Uniforme Interclasses Dragão Gold',
-  category: 'esportivo',
-  image: portfolioEsportivoDragaoDourado2,
-  description: 'Uniforme esportivo preto com arte de dragão em tons dourados.'
-}, {
-  id: 77,
-  title: 'Uniforme Interclasses Fênix Branco',
-  category: 'esportivo',
-  image: portfolioEsportivoFenixBranco,
-  description: 'Uniforme esportivo branco com fênix e chamas em azul e preto.'
-}, {
-  id: 78,
-  title: 'Uniforme Interclasses Dragão Roxo',
-  category: 'esportivo',
-  image: portfolioEsportivoDragaoRoxo,
-  description: 'Uniforme esportivo preto com dragão e raios em roxo neon.'
-}, {
-  id: 79,
-  title: 'Uniforme Interclasses Meninas Super',
-  category: 'esportivo',
-  image: portfolioEsportivoMeninasSuper,
-  description: 'Uniforme esportivo branco com estampa das Meninas Superpoderosas.'
-}, {
-  id: 80,
-  title: 'Uniforme Interclasses Pernalonga',
-  category: 'esportivo',
-  image: portfolioEsportivoPernalonga,
-  description: 'Uniforme esportivo laranja com estampa do Pernalonga em design arrojado.'
-}, {
-  id: 81,
-  title: 'Uniforme Interclasses Polvo Rosa',
-  category: 'esportivo',
-  image: portfolioEsportivoPolvoRosa,
-  description: 'Uniforme esportivo rosa com arte de polvo e detalhes florais.'
-}, {
-  id: 82,
-  title: 'Uniforme Interclasses Pantera Verde',
-  category: 'esportivo',
-  image: portfolioEsportivoPanteraVerde,
-  description: 'Uniforme esportivo branco e verde água com pantera negra e efeito splash.'
-}, {
-  id: 83,
-  title: 'Uniforme Interclasses Fênix Roxo',
-  category: 'esportivo',
-  image: portfolioEsportivoFenixRoxo,
-  description: 'Uniforme esportivo branco e roxo com fênix e gradiente moderno.'
-}, {
-  id: 84,
-  title: 'Camiseta Caldato Diesel Euro Truck',
-  category: 'corporativo',
-  image: portfolioCaldatoDiesel,
-  description: 'Camiseta frente e costas para mecânica diesel com estampa detalhada de caminhão.'
-}, {
-  id: 85,
-  title: 'Body Infantil OZmap',
-  category: 'corporativo',
-  image: portfolioBodyOzmap,
-  description: 'Body infantil personalizado com logo da empresa de tecnologia OZmap.'
-}, {
-  id: 86,
-  title: 'Calça Cargo HazBier',
-  category: 'corporativo',
-  image: portfolioCalcaHazbier,
-  description: 'Calça cargo preta personalizada com bordado para cervejaria HazBier.'
-}, {
-  id: 87,
-  title: 'Camiseta Bruno Souza Dance',
-  category: 'personalizado',
-  image: portfolioBrunoSouzaDance,
-  description: 'Camiseta personalizada para professor de dança com arte digital exclusiva.'
-}, {
-  id: 88,
-  title: 'Polo Siontek Engenharia',
-  category: 'corporativo',
-  image: portfolioPoloSiontek,
-  description: 'Camisa polo corporativa frente e costas para empresa de engenharia e tecnologia.'
-}, {
-  id: 89,
-  title: 'Camiseta Dia das Mães',
-  category: 'eventos',
-  image: portfolioDiaDasMaes,
-  description: 'Camiseta comemorativa para Dia das Mães com tipografia elegante.'
-}, {
-  id: 90,
-  title: 'Camiseta Bertuol Carros',
-  category: 'personalizado',
-  image: portfolioBertuolCarros,
-  description: 'Camiseta personalizada com ilustrações de carros de luxo frente e costas.'
-}, {
-  id: 91,
-  title: 'Camiseta GCA Grupo',
-  category: 'personalizado',
-  image: portfolioGcaGrupo,
-  description: 'Camiseta personalizada para grupo de amigos com arte estilo cartoon.'
-}, {
-  id: 92,
-  title: 'Camiseta Loterias Caixa',
-  category: 'corporativo',
-  image: portfolioLoteriasCaixa,
-  description: 'Uniformes corporativos para lotérica com logo oficial frente e costas.'
-}, {
-  id: 93,
-  title: 'Body Infantil Viasoft',
-  category: 'corporativo',
-  image: portfolioBodyViasoft,
-  description: 'Bodies infantis personalizados para empresa de tecnologia com design divertido.'
-}];
-const categories = [{
-  id: 'todos',
-  name: 'Todos'
-}, {
-  id: 'esportivo',
-  name: 'Esportivo'
-}, {
-  id: 'corporativo',
-  name: 'Corporativo'
-}, {
-  id: 'eventos',
-  name: 'Eventos'
-}, {
-  id: 'terceirao',
-  name: 'Terceirão'
-}, {
-  id: 'personalizado',
-  name: 'Personalizado'
-}];
+const categories = [
+  { id: 'todos', name: 'Todos' },
+  { id: 'esportivo', name: 'Esportivo' },
+  { id: 'corporativo', name: 'Corporativo' },
+  { id: 'eventos', name: 'Eventos' },
+  { id: 'terceirao', name: 'Terceirão' },
+  { id: 'personalizado', name: 'Personalizado' },
+] as const;
+
 const categoryColors: Record<string, string> = {
   esportivo: 'bg-green-100 text-green-800',
   corporativo: 'bg-blue-100 text-blue-800',
-  eventos: 'bg-purple-100 text-purple-800',
+  eventos: 'bg-violet-100 text-violet-800',
   terceirao: 'bg-pink-100 text-pink-800',
-  personalizado: 'bg-orange-100 text-orange-800'
+  personalizado: 'bg-orange-100 text-orange-800',
 };
-
-// Função para embaralhar array (Fisher-Yates)
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
-
-const shuffledPortfolioItems = shuffleArray(portfolioItems);
 
 const testimonials = [
   {
     name: 'Geane Barboza',
     company: 'Cliente',
-    content: 'Gente, pra você que está procurando uma empresa de confiança pra fazer uniformes, eu super recomendo a Gatha Confecções!',
-    rating: 5
+    content: 'Se você está procurando uma empresa de confiança para fazer uniformes, eu recomendo muito a Gatha Confecções.',
+    rating: 5,
   },
   {
     name: 'RH Usiplast',
     company: 'Usiplast',
-    content: 'Ficamos muito satisfeitos com o atendimento e a qualidade dos produtos. O cuidado, a pontualidade e o carinho no trabalho fazem toda a diferença. Recomendo de olhos fechados!',
-    rating: 5
-  },
-  {
-    name: 'Administrativo APAC',
-    company: 'APAC - PB',
-    content: 'Ótimo produto, os tamanhos estava conforme o pedido, vendedora muito atenciosa com o atendimento, prestativa. Agradeço a atenção e agilidade.',
-    rating: 5
-  },
-  {
-    name: 'Gemio Mf2',
-    company: 'Cliente',
-    content: 'Melhor atendimento produto perfeito valor maravilhoso fiz esse moletom para trabalhar de segurança ficou top',
-    rating: 5
-  },
-  {
-    name: 'Fran Dias',
-    company: 'Fotografias Afetivas',
-    content: 'Uniformes de alta qualidade, e Exelente acabamento, super Recomendo.',
-    rating: 5
-  },
-  {
-    name: 'Pamela',
-    company: 'Cliente',
-    content: 'Adoramos as camisetas DFT qualidade muito boa do tecido, atendimento e agilidade pra entregar as peças foram ótimas, super recomendo.',
-    rating: 5
-  },
-  {
-    name: 'Claudia Natalina de Oliveira',
-    company: 'Cliente',
-    content: 'Empresa muito focada para atender bem o cliente, produtos maravilhosos com excelente qualidade, sempre adquiro camisetas e moletons e super recomendo.',
-    rating: 5
+    content: 'Ficamos muito satisfeitos com o atendimento e com a qualidade dos produtos. O cuidado, a pontualidade e o carinho no trabalho fazem toda a diferença.',
+    rating: 5,
   },
   {
     name: 'Emely Roman',
     company: 'Cliente',
-    content: 'Qualidade impecável, ótimo atendimento. E preciso ressaltar a agilidade! Ao entrar em contato com eles, prontamente se dispuseram a me atender e entregar as camisetas na data prevista. Amamos as camisetas!!!',
-    rating: 5
+    content: 'Qualidade impecável e muita agilidade. Fomos atendidos com rapidez e as camisetas chegaram na data prevista.',
+    rating: 5,
   },
-  {
-    name: 'Laerti Risso',
-    company: 'Cliente',
-    content: 'Empresa com excelência em confecções. Produtos de primeira linha, durabilidade impar e atendimento diferenciado! A camiseta personalisada que pedi ficou ótima! Recomendo...',
-    rating: 5
-  }
 ];
+
+function shuffleArray<T>(array: T[]) {
+  const shuffled = [...array];
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+  }
+
+  return shuffled;
+}
+
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState('todos');
-  const filteredItems = shuffledPortfolioItems.filter(item => selectedCategory === 'todos' || item.category === selectedCategory);
-  
+  const shuffledPortfolio = useMemo(() => shuffleArray(portfolioProducts), []);
+  const filteredItems = shuffledPortfolio.filter(
+    (item) => selectedCategory === 'todos' || item.category === selectedCategory,
+  );
+
   return (
     <>
-      <SEOHead 
+      <SEOHead
         title="Portfólio"
-        description="Confira nosso portfólio de uniformes esportivos, corporativos, camisetas personalizadas e peças para eventos. Mais de 1000 projetos realizados."
+        description="Veja o portfólio da Gatha Confecções com produtos personalizados, páginas individuais dos modelos e atendimento direto pelo WhatsApp."
         url="/portfolio"
       />
-      <BreadcrumbSchema items={[
-        { name: 'Início', url: '/' },
-        { name: 'Portfólio', url: '/portfolio' }
-      ]} />
-      
-      <div className="min-h-screen">
-        {/* Hero Section */}
-        <section className="section-padding bg-gradient-hero text-white" aria-labelledby="portfolio-heading">
+      <BreadcrumbSchema
+        items={[
+          { name: 'Início', url: '/' },
+          { name: 'Portfólio', url: '/portfolio' },
+        ]}
+      />
+
+      <div className="min-h-screen bg-background">
+        <section className="section-padding bg-[linear-gradient(135deg,rgba(8,47,73,1),rgba(29,78,216,0.92))] text-white">
           <div className="container-responsive text-center">
-            <h1 id="portfolio-heading" className="text-4xl md:text-5xl font-bold mb-6 text-gray-950">
-              Nosso Portfólio
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-orange-300">Portfólio Gatha</p>
+            <h1 className="mx-auto mt-4 max-w-4xl text-4xl font-bold tracking-tight md:text-5xl">
+              Modelos reais para inspirar seu próximo pedido
             </h1>
-            <p className="text-xl max-w-3xl mx-auto leading-relaxed text-gray-950">
-              Conheça alguns dos projetos que desenvolvemos com carinho e qualidade. 
-              Cada peça conta uma história única de parceria e excelência.
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/80">
+              Explore os produtos da Gatha com página própria, imagem ampliada, descrição detalhada e acesso rápido ao WhatsApp para transformar uma referência em orçamento.
             </p>
           </div>
         </section>
 
-      {/* Portfolio Section */}
-      <section className="section-padding bg-background">
-        <div className="container-responsive">
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map(category => <button key={category.id} onClick={() => setSelectedCategory(category.id)} className={`px-6 py-2 rounded-full font-medium transition-all ${selectedCategory === category.id ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground hover:bg-primary/10'}`}>
-                {category.name}
-              </button>)}
-          </div>
+        <section className="section-padding">
+          <div className="container-responsive">
+            <div className="mb-12 flex flex-wrap justify-center gap-4">
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`rounded-full px-6 py-2 font-medium transition-all ${
+                    selectedCategory === category.id
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-secondary text-secondary-foreground hover:bg-primary/10'
+                  }`}
+                >
+                  {category.name}
+                </button>
+              ))}
+            </div>
 
-          {/* Portfolio Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredItems.map(item => <Dialog key={item.id}>
-                <DialogTrigger asChild>
-                  <div className="card-service cursor-pointer group">
-                    <div className="relative mb-4 overflow-hidden rounded-lg">
-                      <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <Eye className="w-8 h-8 text-white" />
-                      </div>
+            <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+              {filteredItems.map((item) => (
+                <article
+                  key={item.slug}
+                  className="overflow-hidden rounded-[30px] border border-border bg-card shadow-[var(--shadow-card)] transition-transform duration-300 hover:-translate-y-1"
+                >
+                  <Link to={`/portfolio/${item.slug}`} className="block">
+                    <div className="overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-72 w-full object-cover transition-transform duration-500 hover:scale-105"
+                      />
                     </div>
-                    
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <h3 className="font-semibold text-lg text-foreground">{item.title}</h3>
-                        <span className={`px-2 py-1 text-xs rounded-full ${categoryColors[item.category as keyof typeof categoryColors]}`}>
-                          {categories.find(c => c.id === item.category)?.name}
-                        </span>
-                      </div>
-                      <p className="text-muted-foreground text-sm line-clamp-2">
-                        {item.description}
-                      </p>
-                      <a
-                        href={getWhatsAppLink(`Olá! Estou no site e tenho interesse em fazer algo assim: ${item.title}`)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-green-600 hover:text-green-700 transition-colors pt-1"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleWhatsAppClick(`Portfolio Card - ${item.title}`);
-                        }}
+                  </Link>
+
+                  <div className="space-y-4 p-6">
+                    <div className="flex items-center justify-between gap-4">
+                      <span className={`rounded-full px-3 py-1 text-xs font-medium ${categoryColors[item.category]}`}>
+                        {item.categoryLabel}
+                      </span>
+                      <Link
+                        to={`/portfolio/${item.slug}`}
+                        className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
                       >
-                        <MessageCircle size={15} />
-                        Quero algo assim
-                      </a>
+                        Ver detalhes
+                        <ArrowRight size={16} />
+                      </Link>
+                    </div>
+
+                    <div>
+                      <h2 className="text-xl font-semibold text-foreground">{item.title}</h2>
+                      <p className="mt-3 line-clamp-3 text-sm leading-6 text-muted-foreground">{item.description}</p>
+                    </div>
+
+                    <div className="flex flex-col gap-3">
+                      <Button asChild variant="outline">
+                        <Link to={`/portfolio/${item.slug}`}>Abrir página do produto</Link>
+                      </Button>
+                      <Button asChild className="cta-whatsapp">
+                        <a
+                          href={getWhatsAppLink(item.ctaMessage)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2"
+                          onClick={() => handleWhatsAppClick(`Portfolio Card - ${item.title}`)}
+                        >
+                          <MessageCircle size={17} />
+                          Quero algo assim
+                        </a>
+                      </Button>
                     </div>
                   </div>
-                </DialogTrigger>
-                
-                <DialogContent className="max-w-2xl">
-                  <div className="space-y-4">
-                    <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="w-full h-auto object-contain rounded-lg max-h-[60vh]" />
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <h2 className="text-2xl font-bold text-foreground">{item.title}</h2>
-                        <span className={`px-3 py-1 text-sm rounded-full ${categoryColors[item.category as keyof typeof categoryColors]}`}>
-                          {categories.find(c => c.id === item.category)?.name}
-                        </span>
-                      </div>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {item.description}
-                      </p>
-                      
-                      <div className="pt-4">
-                        <Button asChild className="cta-whatsapp w-full">
-                          <a 
-                            href={getWhatsAppLink(`Olá! Estou no site e tenho interesse em fazer algo assim: ${item.title}`)}
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            className="flex items-center justify-center gap-2"
-                            onClick={() => handleWhatsAppClick(`Portfolio - ${item.title}`)}
-                          >
-                            <MessageCircle size={18} />
-                            Quero Algo Assim
-                          </a>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </DialogContent>
-              </Dialog>)}
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Testimonials Section */}
-      <section className="section-padding bg-background">
-        <div className="container-responsive">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              O Que Nossos Clientes Dizem
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Veja os depoimentos de quem já confiou na nossa qualidade
-            </p>
+        <section className="section-padding bg-secondary/35">
+          <div className="container-responsive">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-foreground md:text-4xl">Quem compra com a Gatha recomenda</h2>
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+                Atendimento próximo, qualidade de impressão e acabamento que fazem o cliente voltar.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+              {testimonials.map((testimonial, index) => (
+                <TestimonialCard key={index} {...testimonial} />
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={index} {...testimonial} />
-            ))}
+        <section className="section-padding bg-background">
+          <div className="container-responsive">
+            <div className="rounded-[32px] bg-[linear-gradient(135deg,rgba(15,23,42,1),rgba(30,41,59,0.96))] px-6 py-10 text-center text-white shadow-[var(--shadow-card)] md:px-10">
+              <h2 className="text-3xl font-bold md:text-4xl">Tem um modelo em mente?</h2>
+              <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-white/75">
+                Envie sua referência no WhatsApp e vamos adaptar o produto ideal para sua marca, equipe, evento ou turma.
+              </p>
+              <Button asChild className="cta-whatsapp mt-8">
+                <a
+                  href={getWhatsAppLink(WHATSAPP_MESSAGES.PORTFOLIO)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2"
+                  onClick={() => handleWhatsAppClick('CTA Final Portfolio')}
+                >
+                  <MessageCircle size={18} />
+                  Falar com a equipe agora
+                </a>
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <section className="section-padding bg-secondary">
-        <div className="container-responsive text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Gostou do nosso trabalho?
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Entre em contato conosco e vamos criar algo incrível juntos. 
-            Cada projeto é único e desenvolvido com atenção aos detalhes.
-          </p>
-          
-          <Button asChild className="cta-whatsapp">
-            <a 
-              href={getWhatsAppLink(WHATSAPP_MESSAGES.QUOTE)} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex items-center gap-3 mx-auto w-fit"
-              onClick={() => handleWhatsAppClick('CTA Final Portfolio')}
-            >
-              <MessageCircle size={20} />
-              Iniciar Meu Projeto
-            </a>
-          </Button>
-        </div>
         </section>
       </div>
     </>
